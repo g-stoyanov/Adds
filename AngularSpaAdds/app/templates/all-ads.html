@@ -22,7 +22,25 @@
                                     <img src="" ng-src="{{ad.imageDataUrl ? ad.imageDataUrl : 'img/No_image_available.svg'}}" class="add-img" />
                                 </div>
                             </div>
-                            <div class="col-md-8"></div>
+                            <div class="col-md-8">
+                                <p class="text-info add-text">{{ad.text}}</p>
+                                <table class="table table-striped">
+                                    <tbody>
+                                        <tr>
+                                            <td>Name:</td>
+                                            <td>{{ad.ownerName}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Email:</td>
+                                            <td>{{ad.ownerEmail}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Phone:</td>
+                                            <td>{{ad.ownerPhone}}</td>
+                                        </tr>
+                                    </tbody>
+                                </table> 
+                            </div>
                         </div>
                     </div>
                 </li>
