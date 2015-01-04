@@ -1,0 +1,20 @@
+﻿ul {
+    list-style:none;
+}
+
+.add-img {
+    width: 100%;
+}
+
+.img-container {
+    border-style:solid;
+    border-color: #2B3E50;
+     width: 100%;
+}
+
+.add-container {
+    border-style:solid;
+    border-color: #2B3E50;
+    margin: 10px;
+    padding: 8px;
+}

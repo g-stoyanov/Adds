@@ -1,7 +1,32 @@
 ﻿<div class="jumbotron">
     <div class="row">
         <div class="col-md-8">
-            Ads
+            <ul>
+                <li ng-repeat="ad in allAddsData.ads">
+                    <div class="add-container">
+                        <div class="row">
+                            <div class="col-md-7">
+                                <h4 class="pull-left">
+                                    {{ad.title}}
+                                </h4>
+                            </div>
+                            <div class="col-md-5">
+                                <span class="pull-right">
+                                    {{ad.date | date: 'd-MMM-yyyy'}}
+                                </span>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="img-container">
+                                    <img src="" ng-src="{{ad.imageDataUrl ? ad.imageDataUrl : 'img/No_image_available.svg'}}" class="add-img" />
+                                </div>
+                            </div>
+                            <div class="col-md-8"></div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
         </div>
         <div class="col-md-4">
             Filters
