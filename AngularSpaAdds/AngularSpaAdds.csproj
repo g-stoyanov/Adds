@@ -64,6 +64,8 @@
     <Content Include="app\index.html" />
     <Content Include="app\js\controllers\MainController.js" />
     <Content Include="app\js\services\adds.js" />
+    <Content Include="app\js\services\categories.js" />
+    <Content Include="app\js\services\towns.js" />
     <Content Include="app\lib\angular\angular-animate.js" />
     <Content Include="app\lib\angular\angular-animate.min.js" />
     <Content Include="app\lib\angular\angular-cookies.js" />
@@ -331,9 +333,12 @@
     <Content Include="app\js\app.js" />
     <Content Include="app\lib\bootstrap\bootstrap-theme.min.css" />
     <Content Include="app\lib\bootstrap\bootstrap.min.css" />
+    <Content Include="app\templates\add.html" />
     <Content Include="app\templates\all-ads.html" />
     <Content Include="app\templates\login.html" />
+    <Content Include="app\templates\categories-drop-down.html" />
     <Content Include="app\templates\register.html" />
+    <Content Include="app\templates\towns-drop-down.html" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>

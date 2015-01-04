@@ -1,0 +1,40 @@
+﻿<div class="add-container">
+    <div class="row">
+        <div class="col-md-7">
+            <h4 class="pull-left">
+                {{ad.title}}
+            </h4>
+        </div>
+        <div class="col-md-5">
+            <span class="pull-right">
+                {{ad.date | date: 'd-MMM-yyyy'}}
+            </span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4">
+            <div class="img-container">
+                <img src="" ng-src="{{ad.imageDataUrl ? ad.imageDataUrl : 'img/No_image_available.svg'}}" class="add-img" />
+            </div>
+        </div>
+        <div class="col-md-8">
+            <p class="text-info add-text">{{ad.text}}</p>
+            <table class="table table-striped">
+                <tbody>
+                    <tr>
+                        <td>Name:</td>
+                        <td>{{ad.ownerName}}</td>
+                    </tr>
+                    <tr>
+                        <td>Email:</td>
+                        <td>{{ad.ownerEmail}}</td>
+                    </tr>
+                    <tr>
+                        <td>Phone:</td>
+                        <td>{{ad.ownerPhone}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
