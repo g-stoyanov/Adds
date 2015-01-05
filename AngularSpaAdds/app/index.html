@@ -1,0 +1,28 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>AngularSpaAdds</title>
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="css/app.css" />
+</head>
+<body ng-app="angularSpaAddsModule" ng-controller="SoftuniController">
+    <div class="navbar-collapse collapse" id="navbar-main">
+        <a href="#" class="navbar-brand"><strong>AngularSpaAdds</strong></a>
+        <ul class="nav navbar-nav navbar-right">
+            <li><a href="#/login">Login</a></li>
+            <li><a href="#/register">Register</a></li>
+        </ul>
+    </div>
+    <div ng-view class="container">
+    </div>
+
+    <script type="text/javascript" src="lib/angular/angular.js"></script>
+    <script type="text/javascript" src="lib/angular/angular-route.min.js"></script>
+    <script type="text/javascript" src="js/app.js"></script>
+    <script type="text/javascript" src="js/controllers/MainController.js"></script>
+    <script type="text/javascript" src="js/services/adds.js"></script>
+    <script type="text/javascript" src="js/services/categories.js"></script>
+    <script type="text/javascript" src="js/services/towns.js"></script>
+</body>
+</html>
