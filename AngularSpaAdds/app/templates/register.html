@@ -1,59 +1,62 @@
-﻿<form class="form-horizontal">
+﻿<form class="form-horizontal" name="registrationForm">
     <fieldset>
         <legend>Register</legend>
 
         <div class="form-group">
             <label for="inputUsername" class="col-lg-2 control-label">Username</label>
             <div class="col-lg-10">
-                <input type="text" class="form-control" id="inputUsername" placeholder="Username">
+                <input type="text" ng-required="true" class="form-control form-validation" id="inputUsername" placeholder="Username" ng-model="user.username">
             </div>
         </div>
 
         <div class="form-group">
             <label for="inputPassword" class="col-lg-2 control-label">Password</label>
             <div class="col-lg-10">
-                <input type="password" class="form-control" id="inputPassword" placeholder="Password">
+                <input type="password" ng-required="true" class="form-control form-validation" id="inputPassword" placeholder="Password" ng-model="user.password">
             </div>
         </div>
 
         <div class="form-group">
             <label for="inputConfirmPassword" class="col-lg-2 control-label">Confirm password</label>
             <div class="col-lg-10">
-                <input type="password" class="form-control" id="inputConfirmPassword" placeholder="Confirm password">
+                <input type="password" ng-required="true" class="form-control form-validation" id="inputConfirmPassword" placeholder="Confirm password" ng-model="user.confirmPassword">
             </div>
         </div>
 
         <div class="form-group">
             <label for="inputName" class="col-lg-2 control-label">Name</label>
             <div class="col-lg-10">
-                <input type="text" class="form-control" id="inputName" placeholder="Name">
+                <input type="text" ng-required="true" class="form-control form-validation" id="inputName" placeholder="Name" ng-model="user.name">
             </div>
         </div>
 
         <div class="form-group">
             <label for="inputEmail" class="col-lg-2 control-label">Email</label>
             <div class="col-lg-10">
-                <input type="email" class="form-control" id="inputEmail" placeholder="Email">
+                <input type="email" ng-required="true" class="form-control form-validation" id="inputEmail" placeholder="Email" ng-model="user.email">
             </div>
         </div>
 
         <div class="form-group">
             <label for="inputPhone" class="col-lg-2 control-label">Phone</label>
             <div class="col-lg-10">
-                <input type="tel" class="form-control" id="inputPhone" placeholder="Phone">
+                <input type="tel" class="form-control" id="inputPhone" placeholder="Phone" ng-model="user.phone">
             </div>
         </div>
 
         <div class="form-group">
             <label for="town" class="col-lg-2 control-label">Town</label>
-            <div id="town" ng-include="template.townsDropDown">
+            <div class="col-lg-10">
+                <select class="form-control" id="towns" ng-model="user.townId" ng-options="town.id as town.name for town in allTownsData" ng-change="reloadAdds(true)">
+                    <option value="">-- choose town --</option>
+                </select>
             </div>
         </div>
 
         <div class="form-group">
             <div class="col-lg-10 col-lg-offset-2">
                 <button class="btn btn-default">Cancel</button>
-                <button type="submit" class="btn btn-primary">Register</button>
+                <button type="submit" class="btn btn-primary" ng-click="register(user, registrationForm)">Register</button>
                 <button class="btn btn-default">Login here</button>
             </div>
         </div>

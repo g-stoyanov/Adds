@@ -1,5 +1,6 @@
-﻿var angularSpaAdds = angular.module('angularSpaAddsModule', ['ngRoute', 'angular-loading-bar'])
-.config(function ($routeProvider) {
+﻿var angularSpaAdds = angular.module('angularSpaAddsModule', ['ngRoute'])
+    .value('toastr', toastr)
+    .config(function ($routeProvider) {
 
     $routeProvider.when('/register', {
         templateUrl: 'templates/register.html'
