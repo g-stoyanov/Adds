@@ -456,6 +456,7 @@
     <Content Include="app\lib\jquery\bower.json" />
     <Content Include="app\lib\jquery\dist\jquery.min.map" />
     <Content Include="app\lib\jquery\src\sizzle\dist\sizzle.min.map" />
+    <Content Include="JS-SPA-Self-Evaluation-Protocol.xlsx" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
