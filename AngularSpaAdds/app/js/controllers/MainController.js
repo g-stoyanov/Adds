@@ -1,4 +1,4 @@
-﻿angularSpaAdds.controller('SoftuniController', function ($scope, addsData, categoriesData, townsData, userData, notifier) {
+﻿angularSpaAdds.controller('SoftuniController', function ($scope, $log, addsData, categoriesData, townsData, userData, notifier) {
 
     $scope.maxSize = 5;
     $scope.currentPage = 1;
@@ -42,25 +42,29 @@
         }, $scope.category.id ? $scope.category.id : '', $scope.town.id ? $scope.town.id : '', $scope.currentPage, $scope.maxSize);
     }
 
+    $scope.registerLogin = function (resp) {
+        sessionStorage.setItem('accessToken', JSON.stringify(resp.access_token));
+        sessionStorage.setItem('tokenType', JSON.stringify(resp.token_type));
+        sessionStorage.setItem('username', JSON.stringify(resp.username));
+    }
+
     $scope.register = function (user, registrationForm) {
         userData.register(function (resp) {
-            notifier.success('Successfully registered ');
-            sessionStorage.setItem('accessToken', JSON.stringify(resp.access_token));
-            sessionStorage.setItem('tokenType', JSON.stringify(resp.token_type));
-            sessionStorage.setItem('username', JSON.stringify(resp.username));
-        }, function (resp) {
-            notifier.error(JSON.stringify(resp.modelState));
+            notifier.success('Successfully registered');
+            $scope.registerLogin(resp);
+        }, function (resp, status, headers, config) {
+            $log.error('Status: ' + status + '\nData: ' + JSON.stringify(resp));
+            notifier.error(resp.modelState[""]);         
         }, user, registrationForm);
     }
 
     $scope.login = function (loginUser, loginForm) {
         userData.login(function (resp) {
             notifier.success('Welcome back ' + resp.username);
-            sessionStorage.setItem('accessToken', JSON.stringify(resp.access_token));
-            sessionStorage.setItem('tokenType', JSON.stringify(resp.token_type));
-            sessionStorage.setItem('username', JSON.stringify(resp.username));
-        }, function (resp) {
-            notifier.error('Incorrect username or password');
+            $scope.registerLogin(resp);
+        }, function (resp, status, headers, config) {
+            $log.error('Status: ' + status + '\nData: ' + JSON.stringify(resp));
+            notifier.error(resp.error_description);
         }, loginUser, loginForm);
     }
 
