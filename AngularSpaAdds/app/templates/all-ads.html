@@ -1,20 +1,20 @@
 ﻿<div ng-controller="AddsController">
     <ul>
-        <li ng-repeat="ad in allAddsData.ads">
+        <li ng-repeat="ad in allAddsData.get()">
             <div ng-include="template.add">
             </div>
         </li>
     </ul>
 
     <ul class="pagination">
-        <li><a href="#" ng-click="borderPages(1)">|<<</a></li>
+        <li><a href="#" ng-click="addsPaging.getCurrentPage() === 0 ? 0 : borderPages(1)">|<<</a></li>
         <li><a href="#" ng-click="goToPage(-1)"><<</a></li>
-        <li><a href="#" ng-click="goToPage(-2)">{{currentPage - 2 < 1 ? '':currentPage - 2 }}</a></li>
-        <li><a href="#" ng-click="goToPage(-1)">{{currentPage - 1 < 1 ? '':currentPage - 1 }}</a></li>
-        <li class="active"><a href="#">{{currentPage}}</a></li>
-        <li><a href="#" ng-click="goToPage(1)">{{currentPage + 1 > numPages ? '':currentPage + 1 }}</a></li>
-        <li><a href="#" ng-click="goToPage(2)">{{currentPage + 2 > numPages ? '':currentPage + 2 }}</a></li>
+        <li><a href="#" ng-click="goToPage(-2)">{{addsPaging.getCurrentPage() - 2 < 1 ? '':addsPaging.getCurrentPage() - 2 }}</a></li>
+        <li><a href="#" ng-click="goToPage(-1)">{{addsPaging.getCurrentPage() - 1 < 1 ? '':addsPaging.getCurrentPage() - 1 }}</a></li>
+        <li class="active"><a href="#">{{addsPaging.getCurrentPage()}}</a></li>
+        <li><a href="#" ng-click="goToPage(1)">{{addsPaging.getCurrentPage() + 1 > addsPaging.getNumPages() ? '':addsPaging.getCurrentPage() + 1 }}</a></li>
+        <li><a href="#" ng-click="goToPage(2)">{{addsPaging.getCurrentPage() + 2 > addsPaging.getNumPages() ? '':addsPaging.getCurrentPage() + 2 }}</a></li>
         <li><a href="#" ng-click="goToPage(1)">>></a></li>
-        <li><a href="#" ng-click="borderPages(numPages)">>>|</a></li>
+        <li><a href="#" ng-click="borderPages(addsPaging.getNumPages())">>>|</a></li>
     </ul>
 </div>
