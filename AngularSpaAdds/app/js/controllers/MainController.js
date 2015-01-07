@@ -13,7 +13,21 @@
     $scope.$on('$routeChangeSuccess', function () {
         var path = $location.path();
         switch (path) {
-            default:
+            case "/":
+                $scope.navigation = { "url": $scope.template.homeNavigation };
+                $scope.secondNavigation = { "url": $scope.template.secondNavigation };
+                $scope.leftNavigation = { "url": $scope.template.filterDropDowns };
+                break;
+            case "/login":
+                $scope.navigation = { "url": $scope.template.homeNavigation };
+                $scope.secondNavigation = { "url": $scope.template.secondNavigation };
+                $scope.leftNavigation = { "url": "" };
+                break;
+            case "/register":
+                $scope.navigation = { "url": $scope.template.homeNavigation };
+                $scope.secondNavigation = { "url": $scope.template.secondNavigation };
+                $scope.leftNavigation = { "url": "" };
+                break;
 
         }
     });
