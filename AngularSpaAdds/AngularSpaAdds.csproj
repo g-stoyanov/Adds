@@ -434,6 +434,7 @@
     <Content Include="app\templates\login.html" />
     <Content Include="app\templates\categories-drop-down.html" />
     <Content Include="app\templates\home-navigation.html" />
+    <Content Include="app\templates\pagination.html" />
     <Content Include="app\templates\register.html" />
     <Content Include="app\templates\towns-drop-down.html" />
     <Content Include="app\templates\user-home-nav.html" />

@@ -6,15 +6,5 @@
         </li>
     </ul>
 
-    <ul class="pagination">
-        <li><a href="#" ng-click="addsPaging.getCurrentPage() === 0 ? 0 : borderPages(1)">|<<</a></li>
-        <li><a href="#" ng-click="goToPage(-1)"><<</a></li>
-        <li><a href="#" ng-click="goToPage(-2)">{{addsPaging.getCurrentPage() - 2 < 1 ? '':addsPaging.getCurrentPage() - 2 }}</a></li>
-        <li><a href="#" ng-click="goToPage(-1)">{{addsPaging.getCurrentPage() - 1 < 1 ? '':addsPaging.getCurrentPage() - 1 }}</a></li>
-        <li class="active"><a href="#">{{addsPaging.getCurrentPage()}}</a></li>
-        <li><a href="#" ng-click="goToPage(1)">{{addsPaging.getCurrentPage() + 1 > addsPaging.getNumPages() ? '':addsPaging.getCurrentPage() + 1 }}</a></li>
-        <li><a href="#" ng-click="goToPage(2)">{{addsPaging.getCurrentPage() + 2 > addsPaging.getNumPages() ? '':addsPaging.getCurrentPage() + 2 }}</a></li>
-        <li><a href="#" ng-click="goToPage(1)">>></a></li>
-        <li><a href="#" ng-click="borderPages(addsPaging.getNumPages())">>>|</a></li>
-    </ul>
+    <div ng-include="template.pagination"></div>
 </div>

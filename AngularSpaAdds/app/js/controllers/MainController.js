@@ -6,6 +6,7 @@
         "userHomeNavigation": "templates/user-home-nav.html",
         "filterDropDowns": "templates/filter-drop-downs.html",
         "categoriesDropDown": "templates/categories-drop-down.html",
+        "pagination": "templates/pagination.html",
         "townsDropDown": "templates/towns-drop-down.html",
         "add": "templates/add.html"
     };
