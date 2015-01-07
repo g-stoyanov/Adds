@@ -10,14 +10,17 @@
 <body ng-app="angularSpaAddsModule" ng-controller="SoftuniController">
     <div class="navbar-collapse collapse" id="navbar-main">
         <a href="#" class="navbar-brand"><strong>AngularSpaAdds</strong></a>
-        <ul class="nav navbar-nav navbar-right">
-            <li><a href="#/login">Login</a></li>
-            <li><a href="#/register">Register</a></li>
-        </ul>
     </div>
 
     <div class="row">
         <div class="col-md-3">
+            <div class="panel panel-default">
+                <div class="panel-heading">Navigation</div>
+                <div class="panel-body" ng-include="template.navigation">
+                </div>
+            </div>
+            <div class="panel panel-default" ng-include="template.secondNavigation">
+            </div>
         </div>
         <div class="col-md-6 jumbotron">
             <div ng-view class="container">

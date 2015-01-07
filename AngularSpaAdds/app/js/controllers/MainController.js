@@ -8,6 +8,8 @@
     $scope.user = {};
 
     $scope.template = {
+        "secondNavigation": "templates/home-log-reg.html",
+        "navigation": "templates/home-navigation.html",
         "categoriesDropDown": "templates/categories-drop-down.html",
         "townsDropDown": "templates/towns-drop-down.html",
         "add": "templates/add.html"
