@@ -1,4 +1,5 @@
-﻿    <ul>
+﻿<div ng-controller="AddsController">
+    <ul>
         <li ng-repeat="ad in allAddsData.ads">
             <div ng-include="template.add">
             </div>
@@ -16,3 +17,4 @@
         <li><a href="#" ng-click="goToPage(1)">>></a></li>
         <li><a href="#" ng-click="borderPages(numPages)">>>|</a></li>
     </ul>
+</div>

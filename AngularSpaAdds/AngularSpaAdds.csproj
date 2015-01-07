@@ -62,7 +62,9 @@
     <Content Include="app\css\bootstrap.min.css" />
     <Content Include="app\img\No_image_available.svg" />
     <Content Include="app\index.html" />
+    <Content Include="app\js\controllers\AddsController.js" />
     <Content Include="app\js\controllers\MainController.js" />
+    <Content Include="app\js\controllers\UsersController.js" />
     <Content Include="app\js\services\adds.js" />
     <Content Include="app\js\services\categories.js" />
     <Content Include="app\js\services\notifier.js" />
