@@ -427,12 +427,14 @@
     <Content Include="app\lib\toastr\toastr.min.js" />
     <Content Include="app\templates\add.html" />
     <Content Include="app\templates\all-ads.html" />
+    <Content Include="app\templates\filter-drop-downs.html" />
     <Content Include="app\templates\home-log-reg.html" />
     <Content Include="app\templates\login.html" />
     <Content Include="app\templates\categories-drop-down.html" />
     <Content Include="app\templates\home-navigation.html" />
     <Content Include="app\templates\register.html" />
     <Content Include="app\templates\towns-drop-down.html" />
+    <Content Include="app\templates\user-home-nav.html" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>

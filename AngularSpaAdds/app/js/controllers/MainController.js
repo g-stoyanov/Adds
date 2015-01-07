@@ -1,4 +1,25 @@
-﻿angularSpaAdds.controller('SoftuniController', function ($scope, $log, addsData, categoriesData, townsData, userData, notifier) {
+﻿angularSpaAdds.controller('SoftuniController', function ($scope, $log, $location, addsData, categoriesData, townsData, userData, notifier) {
+
+    $scope.template = {
+        "secondNavigation": "templates/home-log-reg.html",
+        "homeNavigation": "templates/home-navigation.html",
+        "userHomeNavigation": "templates/user-home-nav.html",
+        "filterDropDowns": "templates/filter-drop-downs.html",
+        "categoriesDropDown": "templates/categories-drop-down.html",
+        "townsDropDown": "templates/towns-drop-down.html",
+        "add": "templates/add.html"
+    };
+
+    $scope.$on('$routeChangeSuccess', function () {
+        var path = $location.path();
+        switch (path) {
+            default:
+
+        }
+    });
+
+    $scope.navigation = { "url": $scope.template.homeNavigation };
+    $scope.leftNavigation = { "url": $scope.template.filterDropDowns };
 
     $scope.maxSize = 5;
     $scope.currentPage = 1;
@@ -6,14 +27,9 @@
     $scope.category = {};
     $scope.town = {};
     $scope.user = {};
+    
 
-    $scope.template = {
-        "secondNavigation": "templates/home-log-reg.html",
-        "navigation": "templates/home-navigation.html",
-        "categoriesDropDown": "templates/categories-drop-down.html",
-        "townsDropDown": "templates/towns-drop-down.html",
-        "add": "templates/add.html"
-    };
+    
 
     $scope.goToPage = function (mod) {
         if ($scope.currentPage + mod > 0 && $scope.currentPage + mod <= $scope.numPages) {
@@ -64,6 +80,7 @@
         userData.login(function (resp) {
             notifier.success('Welcome back ' + resp.username);
             $scope.registerLogin(resp);
+            $scope.navigation.url = $scope.template.userHomeNavigation;
         }, function (resp, status, headers, config) {
             $log.error('Status: ' + status + '\nData: ' + JSON.stringify(resp));
             notifier.error(resp.error_description);
