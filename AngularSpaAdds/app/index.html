@@ -15,7 +15,26 @@
             <li><a href="#/register">Register</a></li>
         </ul>
     </div>
-    <div ng-view class="container">
+
+    <div class="row">
+        <div class="col-md-3">
+        </div>
+        <div class="col-md-6 jumbotron">
+            <div ng-view class="container">
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="form-group">
+                <label for="categories" class="col-lg-10 control-label">Categories</label>
+                <div ng-include="template.categoriesDropDown">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="towns" class="col-lg-10 control-label">Towns</label>
+                <div ng-include="template.townsDropDown">
+                </div>
+            </div>
+        </div>
     </div>
 
     <script type="text/javascript" src="lib/jquery/dist/jquery.min.js"></script>
