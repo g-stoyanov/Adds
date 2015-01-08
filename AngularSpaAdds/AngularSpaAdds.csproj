@@ -437,6 +437,7 @@
     <Content Include="app\templates\home\login.html" />
     <Content Include="app\templates\filter\categories-drop-down.html" />
     <Content Include="app\templates\home\home-navigation.html" />
+    <Content Include="app\templates\misc\header.html" />
     <Content Include="app\templates\not-implemented.html" />
     <Content Include="app\templates\misc\pagination.html" />
     <Content Include="app\templates\home\register.html" />

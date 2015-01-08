@@ -23,7 +23,8 @@
         "allAdds": "templates/adds/all-ads.html",
 
         //misc
-        "pagination": "templates/misc/pagination.html"
+        "pagination": "templates/misc/pagination.html",
+        "normalHeader": "templates/misc/header.html"
     };
 
     return templ;

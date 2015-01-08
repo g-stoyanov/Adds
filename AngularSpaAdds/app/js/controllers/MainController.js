@@ -14,6 +14,7 @@
 
         //home
         if (path === '/') {
+            $scope.header = { "url": templates.normalHeader };
             $scope.navigation = { "url": templates.homeNavigation };
             $scope.secondNavigation = { "url": templates.homePanel };
             $scope.leftNavigation = { "url": templates.filterDropDowns };
