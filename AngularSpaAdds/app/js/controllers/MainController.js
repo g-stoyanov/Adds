@@ -1,9 +1,10 @@
 ﻿angularSpaAdds.controller('MainController', function ($scope, $log, $location, addsData, categoriesData, townsData, userData, notifier) {
 
     $scope.template = {
-        "secondNavigation": "templates/home-log-reg.html",
+        "homePanel": "templates/home-log-reg.html",
         "homeNavigation": "templates/home-navigation.html",
         "userHomeNavigation": "templates/user-home-nav.html",
+        "userMyAdsPanel": "templates/user-my-ads-panel.html",
         "filterDropDowns": "templates/filter-drop-downs.html",
         "categoriesDropDown": "templates/categories-drop-down.html",
         "pagination": "templates/pagination.html",
@@ -15,11 +16,11 @@
         var path = $location.path();
         if (path === '/') {
             $scope.navigation = { "url": $scope.template.homeNavigation };
-            $scope.secondNavigation = { "url": $scope.template.secondNavigation };
+            $scope.secondNavigation = { "url": $scope.template.homePanel };
             $scope.leftNavigation = { "url": $scope.template.filterDropDowns };
         } else if (path === '/login' || path === '/register') {
             $scope.navigation = { "url": $scope.template.homeNavigation };
-            $scope.secondNavigation = { "url": $scope.template.secondNavigation };
+            $scope.secondNavigation = { "url": $scope.template.homePanel };
             $scope.leftNavigation = { "url": "" };
         } else if (path === '/user/home') {
             $scope.navigation = { "url": $scope.template.userHomeNavigation };
@@ -31,7 +32,7 @@
             $scope.leftNavigation = { "url": "" };
         } else if (path === '/user/ads') {
             $scope.navigation = { "url": $scope.template.userHomeNavigation };
-            $scope.secondNavigation = { "url": "2" };
+            $scope.secondNavigation = { "url": $scope.template.userMyAdsPanel };
             $scope.leftNavigation = { "url": "2" };
         } else if (path === '/admin/home') {
             $scope.navigation = { "url": "3" };
