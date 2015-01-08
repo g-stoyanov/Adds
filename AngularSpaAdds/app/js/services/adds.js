@@ -61,3 +61,28 @@ angularSpaAdds.factory('addsPaging', function () {
 
     return ctrl;
 });
+
+angularSpaAdds.factory('addsFiltering', function () {
+    var town = "";
+    var category = "";
+    var ctrl = {};
+
+    ctrl.setTown = function (d) {
+        town = d;
+    };
+
+    ctrl.getTown = function () {
+        return town;
+    };
+
+
+    ctrl.setCategory = function (d) {
+        category = d;
+    };
+
+    ctrl.getCategory = function () {
+        return category;
+    };
+
+    return ctrl;
+});

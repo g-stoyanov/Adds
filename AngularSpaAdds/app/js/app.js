@@ -14,5 +14,9 @@
         templateUrl: 'templates/all-ads.html'
     });
 
+    $routeProvider.when('/user/home', {
+        templateUrl: 'templates/all-ads.html'
+    });
+
     $routeProvider.otherwise({ redirectTo: '/' });
 });

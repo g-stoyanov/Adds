@@ -438,6 +438,7 @@
     <Content Include="app\templates\register.html" />
     <Content Include="app\templates\towns-drop-down.html" />
     <Content Include="app\templates\user-home-nav.html" />
+    <Content Include="app\templates\user-my-ads-panel.html" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>

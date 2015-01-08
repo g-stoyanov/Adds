@@ -1,4 +1,4 @@
-﻿<form class="form-horizontal" name="registrationForm">
+﻿<form class="form-horizontal" name="registrationForm" ng-controller="UsersController">
     <fieldset class="col-lg-6">
         <legend>Register</legend>
 
@@ -46,8 +46,8 @@
 
         <div class="form-group">
             <label for="town" class="col-lg-2 control-label">Town</label>
-            <div class="col-lg-10">
-                <select class="form-control" id="towns" ng-model="user.townId" ng-options="town.id as town.name for town in allTownsData" ng-change="reloadAdds(true)">
+            <div class="col-lg-10" ng-controller="AddsController">
+                <select class="form-control" id="towns" ng-model="user.townId" ng-options="town.id as town.name for town in allTownsData">
                     <option value="">-- choose town --</option>
                 </select>
             </div>
