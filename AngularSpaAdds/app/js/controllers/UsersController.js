@@ -9,16 +9,15 @@
     userData,
     notifier) {
 
-    var un = sessionStorage.username ? sessionStorage.username : "";
-    $scope.username = un.substring(1, un.length - 1);
+    $scope.username = sessionStorage.username ? sessionStorage.username : "";
     $scope.user = {};
 
     $scope.registerLogin = function (resp) {
-        sessionStorage.setItem('accessToken', JSON.stringify(resp.access_token));
-        sessionStorage.setItem('tokenType', JSON.stringify(resp.token_type));
-        sessionStorage.setItem('username', JSON.stringify(resp.username));
-        sessionStorage.setItem('isAdmin', JSON.stringify(resp.isAdmin));
-        sessionStorage.setItem('isLogged', JSON.stringify(true));
+        sessionStorage.setItem('accessToken', resp.access_token);
+        sessionStorage.setItem('tokenType', resp.token_type);
+        sessionStorage.setItem('username', resp.username);
+        sessionStorage.setItem('isAdmin', resp.isAdmin?resp.isAdmin:false);
+        sessionStorage.setItem('isLogged', true);
     }
 
     $scope.register = function (user, registrationForm) {
