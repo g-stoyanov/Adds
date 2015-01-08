@@ -1,6 +1,7 @@
 ﻿angularSpaAdds.controller('AddsController', function (
     $scope,
     $log,
+    templates,
     addsTransferData,
     addsData,
     addsFiltering,
@@ -12,6 +13,7 @@
     $scope.allAddsData = addsTransferData;
     $scope.addsPaging = addsPaging;
     $scope.addsFiltering = addsFiltering;
+    $scope.templates = templates;
     $scope.category = {};
     $scope.town = {};
 

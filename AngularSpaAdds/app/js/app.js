@@ -4,20 +4,20 @@
 
     //HOME
     $routeProvider.when('/register', {
-        templateUrl: 'templates/register.html'
+        templateUrl: 'templates/home/register.html'
     });
 
     $routeProvider.when('/login', {
-        templateUrl: 'templates/login.html'
+        templateUrl: 'templates/home/login.html'
     });
 
     $routeProvider.when('/', {
-        templateUrl: templatesProvider.allAdds
+        templateUrl: 'templates/adds/all-ads.html'
     });
     
     //USER
     $routeProvider.when('/user/home', {
-        templateUrl: 'templates/all-ads.html'
+        templateUrl: 'templates/adds/all-ads.html'
     });
 
     $routeProvider.when('/user/ads/publish', {

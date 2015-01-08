@@ -1,10 +1,10 @@
 ﻿<div ng-controller="AddsController">
     <ul>
         <li ng-repeat="ad in allAddsData.get()">
-            <div ng-include="template.add">
+            <div ng-include="templates.add">
             </div>
         </li>
     </ul>
 
-    <div ng-include="template.pagination"></div>
+    <div ng-include="templates.pagination"></div>
 </div>
