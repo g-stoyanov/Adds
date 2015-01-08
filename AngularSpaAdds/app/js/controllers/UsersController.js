@@ -16,7 +16,7 @@
         sessionStorage.setItem('accessToken', resp.access_token);
         sessionStorage.setItem('tokenType', resp.token_type);
         sessionStorage.setItem('username', resp.username);
-        sessionStorage.setItem('isAdmin', resp.isAdmin?resp.isAdmin:false);
+        sessionStorage.setItem('isAdmin', resp.isAdmin);
         sessionStorage.setItem('isLogged', true);
     }
 
@@ -24,7 +24,7 @@
         userData.register(function (resp) {
             notifier.success('Successfully registered');
             $scope.registerLogin(resp);
-            if (!resp.isAdmin) {
+            if (resp['isAdmin'] != 'true') {
                 $location.path('/user/home');
             } else {
                 $location.path('/admin/home');
@@ -40,7 +40,7 @@
         userData.login(function (resp) {
             notifier.success('Welcome back ' + resp.username);
             $scope.registerLogin(resp);
-            if (!resp.isAdmin) {
+            if (resp['isAdmin'] != 'true') {
                 $location.path('/user/home');
             } else {
                 $location.path('/admin/home');
