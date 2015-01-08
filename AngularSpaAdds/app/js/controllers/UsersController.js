@@ -1,4 +1,13 @@
-﻿angularSpaAdds.controller('UsersController', function ($scope, $log, $location, addsData, categoriesData, townsData, userData, notifier) {
+﻿angularSpaAdds.controller('UsersController', function (
+    $scope,
+    $log,
+    $location,
+    templates,
+    addsData,
+    categoriesData,
+    townsData,
+    userData,
+    notifier) {
 
     $scope.user = {};
 
@@ -22,7 +31,7 @@
         userData.login(function (resp) {
             notifier.success('Welcome back ' + resp.username);
             $scope.registerLogin(resp);
-            $scope.navigation.url = $scope.template.userHomeNavigation;
+            $scope.navigation.url = templates.userHomeNavigation;
         }, function (resp, status, headers, config) {
             $log.error('Status: ' + status + '\nData: ' + JSON.stringify(resp));
             notifier.error(resp.error_description);

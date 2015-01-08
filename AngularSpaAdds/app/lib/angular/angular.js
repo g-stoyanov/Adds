@@ -19365,10 +19365,10 @@ var ngIfDirective = ['$animate', function($animate) {
     </file>
     <file name="script.js">
       function Ctrl($scope) {
-        $scope.templates =
+        templatess =
           [ { name: 'template1.html', url: 'template1.html'},
             { name: 'template2.html', url: 'template2.html'} ];
-        $scope.template = $scope.templates[0];
+        templates = templatess[0];
       }
      </file>
     <file name="template1.html">

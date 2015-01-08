@@ -12,7 +12,7 @@
     });
 
     $routeProvider.when('/', {
-        templateUrl: 'templates/all-ads.html'
+        templateUrl: templatesProvider.allAdds
     });
     
     //USER
