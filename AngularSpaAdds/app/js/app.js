@@ -40,5 +40,62 @@
         templateUrl: 'templates/not-implemented.html'
     });
 
+    //ADMIN
+    $routeProvider.when('/admin/home', {
+        templateUrl: 'templates/not-implemented.html'
+    });
+
+    $routeProvider.when('/admin/ads/edit/:id', {
+        templateUrl: 'templates/not-implemented.html'
+    });
+
+    $routeProvider.when('/admin/ads/delete/:id', {
+        templateUrl: 'templates/not-implemented.html'
+    });
+
+    $routeProvider.when('/admin/users/list', {
+        templateUrl: 'templates/not-implemented.html'
+    });
+
+    $routeProvider.when('/admin/users/edit/:id', {
+        templateUrl: 'templates/not-implemented.html'
+    });
+
+    $routeProvider.when('/admin/users/delete/:id', {
+        templateUrl: 'templates/not-implemented.html'
+    });
+
+    $routeProvider.when('/admin/categories/list', {
+        templateUrl: 'templates/not-implemented.html'
+    });
+
+    $routeProvider.when('/admin/categories/create', {
+        templateUrl: 'templates/not-implemented.html'
+    });
+
+    $routeProvider.when('/admin/categories/edit/:id', {
+        templateUrl: 'templates/not-implemented.html'
+    });
+
+    $routeProvider.when('/admin/categories/delete/:id', {
+        templateUrl: 'templates/not-implemented.html'
+    });
+
+    $routeProvider.when('/admin/towns/list', {
+        templateUrl: 'templates/not-implemented.html'
+    });
+
+    $routeProvider.when('/admin/towns/create', {
+        templateUrl: 'templates/not-implemented.html'
+    });
+
+    $routeProvider.when('/admin/towns/edit/:id', {
+        templateUrl: 'templates/not-implemented.html'
+    });
+
+    $routeProvider.when('/admin/towns/delete/:id', {
+        templateUrl: 'templates/not-implemented.html'
+    });
+
     $routeProvider.otherwise({ redirectTo: '/' });
 });
