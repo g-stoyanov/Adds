@@ -9,6 +9,8 @@
     userData,
     notifier) {
 
+    var un = sessionStorage.username ? sessionStorage.username : "";
+    $scope.username = un.substring(1, un.length - 1);
     $scope.user = {};
 
     $scope.registerLogin = function (resp) {

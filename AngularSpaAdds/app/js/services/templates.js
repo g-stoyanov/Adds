@@ -4,10 +4,12 @@
         //home
         "homePanel": "templates/home/home-log-reg.html",
         "homeNavigation": "templates/home/home-navigation.html",
+        "normalHeader": "templates/home/header.html",
 
         //user
         "userHomeNavigation": "templates/user/user-home-nav.html",
         "userMyAdsPanel": "templates/user/user-my-ads-panel.html",
+        "userHeader": "templates/user/userHeader.html",
 
         //admin
         "adminHomeNavigation": "templates/admin/admin-home-nav.html",
@@ -23,8 +25,7 @@
         "allAdds": "templates/adds/all-ads.html",
 
         //misc
-        "pagination": "templates/misc/pagination.html",
-        "normalHeader": "templates/misc/header.html"
+        "pagination": "templates/misc/pagination.html"
     };
 
     return templ;
