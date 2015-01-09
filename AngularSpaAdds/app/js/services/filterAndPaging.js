@@ -1,4 +1,4 @@
-﻿angularSpaAdds.factory('reloadAdds', function () {
+﻿angularSpaAdds.factory('reloadAdds', function ($log) {
     return function (scope, addsData, isFilter) {
 
         if (isFilter) {
@@ -9,8 +9,11 @@
 
         addsData.getAllAdds(function (resp) {
             scope.allAddsData.set(resp);
+            scope.addsPaging.setCurrentPage(scope.addsPaging.getCurrentPage() === 0 ? 1 : scope.addsPaging.getCurrentPage());
             if (resp.ads.length === 0) {
                 scope.addsPaging.setCurrentPage(0);
+            } else {
+                scope.addsPaging.setCurrentPage(scope.addsPaging.getCurrentPage());
             }
 
             scope.addsPaging.setNumPages(resp.numPages);
@@ -21,7 +24,7 @@
     };
 })
 
-angularSpaAdds.factory('reloadUserAdds', function () {
+angularSpaAdds.factory('reloadUserAdds', function ($log) {
     return function (scope, addsData, isFilter, status) {
 
         if (isFilter) {
@@ -32,14 +35,17 @@ angularSpaAdds.factory('reloadUserAdds', function () {
 
         addsData.getUserAdds(function (resp) {
             scope.allAddsData.set(resp);
+            scope.addsPaging.setCurrentPage(scope.addsPaging.getCurrentPage() === 0 ? 1 : scope.addsPaging.getCurrentPage());
             if (resp.ads.length === 0) {
                 scope.addsPaging.setCurrentPage(0);
+            } else {
+               scope.addsPaging.setCurrentPage(scope.addsPaging.getCurrentPage());
             }
 
             scope.addsPaging.setNumPages(resp.numPages);
         }, function (resp, status, headers, config) {
             $log.error('Status: ' + status + '\nData: ' + JSON.stringify(resp));
             notifier.error(resp.modelState[""]);
-        }, status, scope.addsPaging.getCurrentPage(), scope.addsPaging.getMaxSize());
+        }, status, scope.addsPaging.getCurrentPage() === 0 ? 1 : scope.addsPaging.getCurrentPage(), scope.addsPaging.getMaxSize());
     };
 })
