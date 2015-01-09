@@ -21,7 +21,7 @@
     });
 
     $routeProvider.when('/user/ads/publish', {
-        templateUrl: 'templates/not-implemented.html'
+        templateUrl: 'templates/adds/publish-add.html'
     });
 
     $routeProvider.when('/user/ads', {

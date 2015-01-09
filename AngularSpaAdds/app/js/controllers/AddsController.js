@@ -16,6 +16,7 @@
     $scope.templates = templates;
     $scope.category = {};
     $scope.town = {};
+    $scope.add = {};
 
     $scope.goToPage = function (mod) {
         if ($scope.addsPaging.getCurrentPage() + mod > 0 && $scope.addsPaging.getCurrentPage() + mod <= $scope.addsPaging.getNumPages()) {
@@ -56,6 +57,12 @@
 
         $scope.addsPaging.setNumPages(resp.numPages);
     }, $scope.addsFiltering.getCategory() ? $scope.addsFiltering.getCategory() : '', $scope.addsFiltering.getTown() ? $scope.addsFiltering.getTown() : '', $scope.addsPaging.getCurrentPage(), $scope.addsPaging.getMaxSize());
+
+    $scope.previewPic = function (files) {
+        var reader = new FileReader();
+        var output = document.getElementById('imagePreview');
+        output.src = URL.createObjectURL(files[0]);
+    }
 
     categoriesData.getAllCategories(function (resp) {
         $scope.allCategoriesData = resp;
