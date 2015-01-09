@@ -449,6 +449,7 @@
     <Content Include="app\templates\misc\pagination.html" />
     <Content Include="app\templates\home\register.html" />
     <Content Include="app\templates\filter\towns-drop-down.html" />
+    <Content Include="app\templates\user\user-all-ads-ad.html" />
     <Content Include="app\templates\user\user-home-nav.html" />
     <Content Include="app\templates\user\user-my-ads-panel.html" />
     <Content Include="app\templates\user\user-my-ads.html" />

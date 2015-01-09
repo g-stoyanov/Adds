@@ -12,6 +12,7 @@
         "userHeader": "templates/user/userHeader.html",
         "add": "templates/adds/add.html",
         "userAllAdds": "templates/user/user-my-ads.html",
+        "userAllAddsAdd": "templates/user/user-all-ads-ad.html",
 
         //admin
         "adminHomeNavigation": "templates/admin/admin-home-nav.html",
