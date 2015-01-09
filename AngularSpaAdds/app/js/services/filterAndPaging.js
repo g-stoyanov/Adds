@@ -1,12 +1,5 @@
-﻿angularSpaAdds.factory('reloadAdds', function ($http) {
+﻿angularSpaAdds.factory('reloadAdds', function () {
     return function (scope, addsTransferData, addsPaging, addsFiltering, addsData, isFilter) {
-
-        scope.allAddsData = addsTransferData;
-        scope.addsPaging = addsPaging;
-        scope.addsFiltering = addsFiltering;
-        scope.category = {};
-        scope.town = {};
-
 
         if (isFilter) {
             scope.addsFiltering.setTown(scope.town.id);
