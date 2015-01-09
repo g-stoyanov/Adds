@@ -1,12 +1,31 @@
 ﻿angularSpaAdds.factory('addsData', function ($http, $log) {
     return {
-        getAllAdds: function (success, categoryId, townId, startPage, pageSize) {
+        getAllAdds: function (success, error, categoryId, townId, startPage, pageSize) {
             $http({ method: 'GET', url: 'http://softuni-ads.azurewebsites.net/api/Ads?CategoryId=' + categoryId + '&TownId=' + townId + '&StartPage=' + startPage + '&PageSize=' + pageSize })
             .success(function (data, status, headers, config) {
                 success(data);
             })
             .error(function (data, status, headers, config) {
-                $log.warn(data);
+                $log.error(data);
+                error(data);
+            })
+        },
+
+        publishAdd: function (success, error, add) {
+            $http({
+                method: 'POST',
+                url: 'http://softuni-ads.azurewebsites.net/api/user/Ads',
+                headers: {
+                    Authorization: 'Bearer ' + sessionStorage.getItem('accessToken')
+                },
+                data: add
+            })
+            .success(function (data, status, headers, config) {
+                success(data);
+            })
+            .error(function (data, status, headers, config) {
+                $log.error(data);
+                error(data);
             })
         }
     }
