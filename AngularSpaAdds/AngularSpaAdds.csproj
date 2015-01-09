@@ -63,10 +63,15 @@
     <Content Include="app\img\No_image_available.svg" />
     <Content Include="app\index.html" />
     <Content Include="app\js\controllers\AddsController.js" />
+    <Content Include="app\js\controllers\AddsDataController.js" />
+    <Content Include="app\js\controllers\CategoriesDataController.js" />
+    <Content Include="app\js\controllers\FilterController.js" />
     <Content Include="app\js\controllers\MainController.js" />
+    <Content Include="app\js\controllers\TownsDataController.js" />
     <Content Include="app\js\controllers\UsersController.js" />
     <Content Include="app\js\services\adds.js" />
     <Content Include="app\js\services\categories.js" />
+    <Content Include="app\js\services\filterAndPaging.js" />
     <Content Include="app\js\services\notifier.js" />
     <Content Include="app\js\services\templates.js" />
     <Content Include="app\js\services\towns.js" />
