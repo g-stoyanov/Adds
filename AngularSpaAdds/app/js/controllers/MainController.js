@@ -46,7 +46,7 @@
                 $scope.header = { "url": templates.userHeader };
                 $scope.navigation = { "url": templates.userHomeNavigation };
                 $scope.secondNavigation = { "url": templates.userMyAdsPanel };
-                $scope.leftNavigation = { "url": "2" };
+                $scope.leftNavigation = { "url": "" };
             } else {
                 $location.path('/user/home');
             }

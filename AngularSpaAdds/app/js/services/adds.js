@@ -14,11 +14,28 @@
         publishAdd: function (success, error, add) {
             $http({
                 method: 'POST',
-                url: 'http://softuni-ads.azurewebsites.net/api/user/Ads',
+                url: 'http://softuni-ads.azurewebsites.net/api/user/Ads?Status=' + status + '&StartPage=' + startPage + '&PageSize=' + pageSize,
                 headers: {
                     Authorization: 'Bearer ' + sessionStorage.getItem('accessToken')
                 },
                 data: add
+            })
+            .success(function (data, status, headers, config) {
+                success(data);
+            })
+            .error(function (data, status, headers, config) {
+                $log.error(data);
+                error(data);
+            })
+        },
+
+        getUserAdds: function (success, error, status, startPage, pageSize) {
+            $http({
+                method: 'GET',
+                url: 'http://softuni-ads.azurewebsites.net/api/User/Ads',
+                headers: {
+                    Authorization: 'Bearer ' + sessionStorage.getItem('accessToken')
+                }
             })
             .success(function (data, status, headers, config) {
                 success(data);
@@ -35,7 +52,22 @@ angularSpaAdds.factory('addsTransferData', function () {
     var data = [];
     var ctrl = {};
 
-    ctrl.set = function(d){
+    ctrl.set = function (d) {
+        data = d.ads;
+    };
+
+    ctrl.get = function () {
+        return data;
+    };
+
+    return ctrl;
+});
+
+angularSpaAdds.factory('userAddsTransferData', function () {
+    var data = [];
+    var ctrl = {};
+
+    ctrl.set = function (d) {
         data = d.ads;
     };
 

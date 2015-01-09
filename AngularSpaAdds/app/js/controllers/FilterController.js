@@ -15,6 +15,6 @@
     });
 
     $scope.reloadAdds = function (isFilter) {
-        reloadAdds($scope, addsTransferData, addsPaging, addsFiltering, addsData, isFilter);
+        reloadAdds($scope, addsData, isFilter);
     }
 })

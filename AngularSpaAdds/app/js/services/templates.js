@@ -10,6 +10,8 @@
         "userHomeNavigation": "templates/user/user-home-nav.html",
         "userMyAdsPanel": "templates/user/user-my-ads-panel.html",
         "userHeader": "templates/user/userHeader.html",
+        "add": "templates/adds/add.html",
+        "userAllAdds": "templates/user/user-my-ads.html",
 
         //admin
         "adminHomeNavigation": "templates/admin/admin-home-nav.html",

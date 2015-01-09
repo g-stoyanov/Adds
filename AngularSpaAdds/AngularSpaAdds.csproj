@@ -66,6 +66,8 @@
     <Content Include="app\js\controllers\AddsDataController.js" />
     <Content Include="app\js\controllers\FilterController.js" />
     <Content Include="app\js\controllers\MainController.js" />
+    <Content Include="app\js\controllers\UserAddsController.js" />
+    <Content Include="app\js\controllers\UserAdsDataController.js" />
     <Content Include="app\js\controllers\UsersController.js" />
     <Content Include="app\js\services\adds.js" />
     <Content Include="app\js\services\categories.js" />
@@ -449,6 +451,7 @@
     <Content Include="app\templates\filter\towns-drop-down.html" />
     <Content Include="app\templates\user\user-home-nav.html" />
     <Content Include="app\templates\user\user-my-ads-panel.html" />
+    <Content Include="app\templates\user\user-my-ads.html" />
     <Content Include="app\templates\user\userHeader.html" />
     <Content Include="Web.config" />
   </ItemGroup>

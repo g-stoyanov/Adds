@@ -20,22 +20,13 @@
     $scope.town = {};
     $scope.add = {};
 
+    $scope.allAddsData.set([]);
 
-    if ($location.path() === '/' ||
-        $location.path() === '/user/home' ||
-        $location.path() === '/admin/home') {
-        addsData.getAllAdds(function (resp) {
-            $scope.allAddsData.set(resp);
-            if (resp.ads.length === 0) {
-                $scope.addsPaging.setCurrentPage(0);
-            }
-
-            $scope.addsPaging.setNumPages(resp.numPages);
-        }, function (resp, status, headers, config) {
-            $log.error('Status: ' + status + '\nData: ' + JSON.stringify(resp));
-            notifier.error(resp.modelState[""]);
-        }, $scope.addsFiltering.getCategory() ? $scope.addsFiltering.getCategory() : '', $scope.addsFiltering.getTown() ? $scope.addsFiltering.getTown() : '', $scope.addsPaging.getCurrentPage(), $scope.addsPaging.getMaxSize());
+    $scope.reloadAdds = function (isFilter) {
+        reloadAdds($scope, addsData, isFilter);
     }
+
+    reloadAdds($scope, addsData, false);
 
     $scope.goToPage = function (mod) {
         if ($scope.addsPaging.getCurrentPage() + mod > 0 && $scope.addsPaging.getCurrentPage() + mod <= $scope.addsPaging.getNumPages()) {
@@ -51,10 +42,6 @@
         }
     }
 
-    $scope.reloadAdds = function (isFilter) {
-        reloadAdds($scope, addsTransferData, addsPaging, addsFiltering, addsData, isFilter);
-    }
-
     $scope.publish = function (publishAddForm) {
         if (publishAddForm.$valid) {
             addsData.publishAdd(function (resp) {
@@ -66,6 +53,7 @@
             }, $scope.add);
         } 
     }
+
     $scope.previewPic = function (files) {
         delete $scope.add.imageDataUrl;
         var file = files[0];

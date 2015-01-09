@@ -25,7 +25,8 @@
     });
 
     $routeProvider.when('/user/ads', {
-        templateUrl: 'templates/not-implemented.html'
+        templateUrl: 'templates/user/user-my-ads.html',
+        controller: 'UserAddsController'
     });
 
     $routeProvider.when('/user/ads/edit/:id', {
