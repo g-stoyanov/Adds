@@ -8,19 +8,24 @@
     <link rel="stylesheet" type="text/css" href="lib/toastr/toastr.css" />
 </head>
 <body ng-app="angularSpaAddsModule" ng-controller="MainController">
-    <div class="panel panel-success" ng-model="header" ng-include="header.url">
-    </div>
+
+    <div ng-model="header" ng-include="header.url"></div>
 
     <div class="row">
+
         <div class="col-md-3">
+
             <div class="panel panel-success" ng-model="navigation">
                 <div class="panel-heading"><strong>Navigation</strong></div>
                 <div class="panel-body " ng-include="navigation.url">
                 </div>
             </div>
+
             <div class="panel panel-default" ng-model="secondNavigation" ng-include="secondNavigation.url">
             </div>
+
         </div>
+
         <div class="col-md-6 jumbotron">
             <div ng-view class="container">
             </div>

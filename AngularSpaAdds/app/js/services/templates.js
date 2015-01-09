@@ -14,6 +14,7 @@
         //admin
         "adminHomeNavigation": "templates/admin/admin-home-nav.html",
         "adminAdsPanel": "templates/admin/admin-ads-panel.html",
+        "adminHeader": "templates/admin/adminHeader.html",
 
         //filter
         "filterDropDowns": "templates/filter/filter-drop-downs.html",

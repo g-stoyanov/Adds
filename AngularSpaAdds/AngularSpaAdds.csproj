@@ -432,6 +432,7 @@
     <Content Include="app\templates\admin\admin-ads-panel.html" />
     <Content Include="app\templates\admin\admin-home-nav.html" />
     <Content Include="app\templates\adds\all-ads.html" />
+    <Content Include="app\templates\admin\adminHeader.html" />
     <Content Include="app\templates\filter\filter-drop-downs.html" />
     <Content Include="app\templates\home\home-log-reg.html" />
     <Content Include="app\templates\home\login.html" />
