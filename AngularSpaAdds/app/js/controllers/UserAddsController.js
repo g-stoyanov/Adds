@@ -23,7 +23,11 @@
     $scope.allAddsData.set([]);
 
     $scope.reloadUserAdds = function (isFilter) {
-        reloadUserAdds($scope, addsData, isFilter);
+        reloadUserAdds($scope, addsData, isFilter, "");
+    }
+
+    $scope.getUserAddsByStatus = function (status) {
+        reloadUserAdds($scope, addsData, false, status);
     }
 
     reloadUserAdds($scope, addsData, false);

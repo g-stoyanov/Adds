@@ -1,10 +1,10 @@
-﻿<div class="panel panel-success" ng-model="myAdds">
+﻿<div class="panel panel-success" ng-controller="UserAddsController">
     <div class="panel-heading"><strong>Adds</strong></div>
     <ul class="nav">
-        <li class="active"><a href="">All</a></li>
-        <li><a href="">Published</a></li>
-        <li><a href="">Waiting Approval</a></li>
-        <li><a href="">Inactive</a></li>
-        <li><a href="">Rejected</a></li>
+        <li class="active"><a href="" onclick="angular.element(this).scope().getUserAddsByStatus('')">All</a></li>
+        <li><a href="" onclick="angular.element(this).scope().getUserAddsByStatus(2)">Published</a></li>
+        <li><a href="" onclick="angular.element(this).scope().getUserAddsByStatus(1)">Waiting Approval</a></li>
+        <li><a href="" onclick="angular.element(this).scope().getUserAddsByStatus(0)">Inactive</a></li>
+        <li><a href="" onclick="angular.element(this).scope().getUserAddsByStatus(3)">Rejected</a></li>
     </ul>
 </div>

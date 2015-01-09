@@ -22,7 +22,7 @@
 })
 
 angularSpaAdds.factory('reloadUserAdds', function () {
-    return function (scope, addsData, isFilter) {
+    return function (scope, addsData, isFilter, status) {
 
         if (isFilter) {
             scope.addsFiltering.setTown(scope.town.id);
@@ -40,6 +40,6 @@ angularSpaAdds.factory('reloadUserAdds', function () {
         }, function (resp, status, headers, config) {
             $log.error('Status: ' + status + '\nData: ' + JSON.stringify(resp));
             notifier.error(resp.modelState[""]);
-        }, scope.addsFiltering.getCategory() ? scope.addsFiltering.getCategory() : '', scope.addsFiltering.getTown() ? scope.addsFiltering.getTown() : '', scope.addsPaging.getCurrentPage(), scope.addsPaging.getMaxSize());
+        }, status, scope.addsPaging.getCurrentPage(), scope.addsPaging.getMaxSize());
     };
 })
