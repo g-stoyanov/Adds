@@ -1,64 +1,91 @@
-﻿<form class="form-horizontal" name="registrationForm" ng-controller="UsersController">
-    <fieldset class="col-lg-6">
-        <legend>Register</legend>
+﻿<div class="row" ng-controller="UsersController">
 
-        <div class="form-group">
-            <label for="inputUsername" class="col-lg-2 control-label">Username</label>
-            <div class="col-lg-10">
-                <input type="text" ng-required="true" class="form-control form-validation" id="inputUsername" placeholder="Username" ng-model="user.username">
-            </div>
-        </div>
+    <div class="col-md-7">
+        <form class="form-horizontal" name="editProfileForm">
+            <fieldset class="col-lg-6">
+                <legend>Edit Profile</legend>
 
-        <div class="form-group">
-            <label for="inputPassword" class="col-lg-2 control-label">Password</label>
-            <div class="col-lg-10">
-                <input type="password" ng-required="true" class="form-control form-validation" id="inputPassword" placeholder="Password" ng-model="user.password">
-            </div>
-        </div>
+                <div class="form-group">
+                    <label for="inputUsername" class="col-lg-2 control-label">Username</label>
+                    <div class="col-lg-10">
+                        <input type="text" ng-required="true" class="form-control form-validation" id="inputUsername" placeholder="Username" ng-model="userProfile.username">
+                    </div>
+                </div>
 
-        <div class="form-group">
-            <label for="inputConfirmPassword" class="col-lg-2 control-label">Confirm password</label>
-            <div class="col-lg-10">
-                <input type="password" ng-required="true" class="form-control form-validation" id="inputConfirmPassword" placeholder="Confirm password" ng-model="user.confirmPassword">
-            </div>
-        </div>
+                <div class="form-group">
+                    <label for="inputName" class="col-lg-2 control-label">Name</label>
+                    <div class="col-lg-10">
+                        <input type="text" ng-required="true" class="form-control form-validation" id="inputName" placeholder="Name" ng-model="userProfile.name">
+                    </div>
+                </div>
 
-        <div class="form-group">
-            <label for="inputName" class="col-lg-2 control-label">Name</label>
-            <div class="col-lg-10">
-                <input type="text" ng-required="true" class="form-control form-validation" id="inputName" placeholder="Name" ng-model="user.name">
-            </div>
-        </div>
+                <div class="form-group">
+                    <label for="inputEmail" class="col-lg-2 control-label">Email</label>
+                    <div class="col-lg-10">
+                        <input type="email" ng-required="true" class="form-control form-validation" id="inputEmail" placeholder="Email" ng-model="userProfile.email">
+                    </div>
+                </div>
 
-        <div class="form-group">
-            <label for="inputEmail" class="col-lg-2 control-label">Email</label>
-            <div class="col-lg-10">
-                <input type="email" ng-required="true" class="form-control form-validation" id="inputEmail" placeholder="Email" ng-model="user.email">
-            </div>
-        </div>
+                <div class="form-group">
+                    <label for="inputPhone" class="col-lg-2 control-label">Phone</label>
+                    <div class="col-lg-10">
+                        <input type="tel" class="form-control" id="inputPhone" placeholder="Phone" ng-model="userProfile.phone">
+                    </div>
+                </div>
 
-        <div class="form-group">
-            <label for="inputPhone" class="col-lg-2 control-label">Phone</label>
-            <div class="col-lg-10">
-                <input type="tel" class="form-control" id="inputPhone" placeholder="Phone" ng-model="user.phone">
-            </div>
-        </div>
+                <div class="form-group">
+                    <label for="town" class="col-lg-2 control-label">Town</label>
+                    <div class="col-lg-10" ng-controller="AddsController">
+                        <select class="form-control" id="towns" ng-model="userProfile.townId" ng-options="town.id as town.name for town in allTownsData">
+                            <option value="">-- choose town --</option>
+                        </select>
+                    </div>
+                </div>
 
-        <div class="form-group">
-            <label for="town" class="col-lg-2 control-label">Town</label>
-            <div class="col-lg-10" ng-controller="AddsController">
-                <select class="form-control" id="towns" ng-model="user.townId" ng-options="town.id as town.name for town in allTownsData">
-                    <option value="">-- choose town --</option>
-                </select>
-            </div>
-        </div>
+                <div class="form-group">
+                    <div class="col-lg-10 col-lg-offset-2">
+                        <a class="btn btn-success" href="#/user/home">Cancel</a>
+                        <button type="submit" class="btn btn-danger" ng-click="updateUserProfile(userProfile, editProfileForm)">Update</button>
+                    </div>
+                </div>
+            </fieldset>
+        </form>
+    </div>
 
-        <div class="form-group">
-            <div class="col-lg-10 col-lg-offset-2">
-                <a class="btn btn-default" href="#/">Cancel</a>
-                <button type="submit" class="btn btn-primary" ng-click="register(user, registrationForm)">Register</button>
-                <button class="btn btn-default">Login here</button>
-            </div>
-        </div>
-    </fieldset>
-</form>
+    <div class="col-md-5">
+        <form class="form-horizontal" name="editPasswordForm">
+            <fieldset class="col-lg-6">
+                <legend>Edit Password</legend>
+
+                <div class="form-group">
+                    <label for="inputOldPassword" class="col-lg-2 control-label">Old password</label>
+                    <div class="col-lg-10">
+                        <input type="password" ng-required="true" class="form-control form-validation" id="inputOldPassword" placeholder="Password" ng-model="userProfile.password">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="inputNewPassword" class="col-lg-2 control-label">New password</label>
+                    <div class="col-lg-10">
+                        <input type="password" ng-required="true" class="form-control form-validation" id="inputNewPassword" placeholder="Password" ng-model="userProfile.password">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="inputConfirmNewPassword" class="col-lg-2 control-label">Confirm new password</label>
+                    <div class="col-lg-10">
+                        <input type="password" ng-required="true" class="form-control form-validation" id="inputConfirmNewPassword" placeholder="Confirm password" ng-model="userProfile.confirmPassword">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-lg-10 col-lg-offset-2">
+                        <a class="btn btn-success" href="#/user/home">Cancel</a>
+                        <button type="submit" class="btn btn-danger" ng-click="updateUserPassword(userProfile, editPasswordForm)">Change Password</button>
+                    </div>
+                </div>
+            </fieldset>
+        </form>
+    </div>
+
+</div>
