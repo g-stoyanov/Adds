@@ -30,8 +30,13 @@
 
         addsData.getUserAdd(function (resp) {
             $scope.userAdd = resp;
-            var imgPreview = document.getElementById('imagePreview');
-            imgPreview.src = $scope.userAdd.imageDataUrl;
+
+            if ($location.path().indexOf("/user/ads/edit/") > -1) {
+                var imgPreview = document.getElementById('imagePreview');
+                imgPreview.src = $scope.userAdd.imageDataUrl;
+                $scope.userAdd.ChangeImage = false;
+            }
+           
         }, function (resp, status, headers, config) {
             $log.error('Status: ' + status + '\nData: ' + JSON.stringify(resp));
             notifier.error("Cannot load advertisement data.");
@@ -50,19 +55,48 @@
         }, id);
     }
 
-    $scope.editUserAdd = function (id) {
-        addsData.editUserAdd(function (resp) {
-            notifier.success("Advertisement edited. Don't forget to submit it for publishing.");
-            $location.path('/user/ads');
-        }, function (resp, status, headers, config) {
-            $log.error('Status: ' + status + '\nData: ' + JSON.stringify(resp));
-            notifier.error("Cannot update advertisement.");
-            $location.path('/user/ads');
-        }, id);
+    $scope.editUserAdd = function (userAdd, editAddForm) {
+        if (editAddForm.$valid) {
+            addsData.editUserAdd(function (resp) {
+                notifier.success("Advertisement edited. Don't forget to submit it for publishing.");
+                $location.path('/user/ads');
+            }, function (resp, status, headers, config) {
+                $log.error('Status: ' + status + '\nData: ' + JSON.stringify(resp));
+                notifier.error("Cannot update advertisement.");
+                $location.path('/user/ads');
+            }, userAdd);
+        }
+    }
+
+    $scope.setChangePic = function () {
+        $scope.userAdd.ChangeImage = !$scope.userAdd.ChangeImage;
+
+        if ($scope.userAdd.ChangeImage) {
+            notifier.success("Advertisement image state set to ON.");
+            notifier.warning("All image data changes will be saved.");
+        } else {
+            notifier.success("Advertisement image state set to OFF.");
+            notifier.warning("All image data changes will be discarded.");
+        }
+    }
+
+    $scope.deletePic = function () {
+        if ($scope.userAdd.imageDataUrl) {
+            delete $scope.userAdd.imageDataUrl;
+        }
+
+        notifier.success("Advertisement image deleted.");        
+        notifier.warning("If you want to keep deleted original image please set 'Change image' state to 'NO' before submit, else set it to 'YES'");
+
+        var imgPreview = document.getElementById('imagePreview');
+        imgPreview.src = 'img/No_image_available.svg';
     }
 
     $scope.changePic = function (files) {
-        delete $scope.userAdd.imageDataUrl;
+        if ($scope.userAdd.imageDataUrl) {
+            delete $scope.userAdd.imageDataUrl;
+        }
+
         var file = files[0];
         var imgPreview = document.getElementById('imagePreview');
 
@@ -70,10 +104,16 @@
             var reader = new FileReader();
             reader.onload = function () {
                 $scope.userAdd.imageDataUrl = reader.result;
+
+                notifier.success("Advertisement image changed.")
+                notifier.warning("If you to want keep original image please set 'Change image' state to 'NO' before submit, else set it to 'YES'");
+
                 imgPreview.src = $scope.userAdd.imageDataUrl;
             };
             reader.readAsDataURL(file);
         } else {
+            notifier.error("Bad image file.");
+            notifier.warning("If you want to keep original image please set 'Change image' state to 'NO' before submit, else set it to 'YES'");
             imgPreview.src = 'img/No_image_available.svg';
         }
     }

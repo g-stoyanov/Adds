@@ -83,13 +83,14 @@
             })
         },
 
-        editUserAdd: function (success, error, id) {
+        editUserAdd: function (success, error, userAdd) {
             $http({
                 method: 'PUT',
-                url: 'http://softuni-ads.azurewebsites.net/api/User/Ads/' + id,
+                url: 'http://softuni-ads.azurewebsites.net/api/User/Ads/' + userAdd.id,
                 headers: {
                     Authorization: 'Bearer ' + sessionStorage.getItem('accessToken')
-                }
+                },
+                data: userAdd
             })
             .success(function (data, status, headers, config) {
                 success(data);

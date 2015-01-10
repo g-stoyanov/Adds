@@ -1,5 +1,5 @@
 ﻿<div ng-controller="UserAddsDataController">
-    <form class="form-horizontal" name="publishAddForm">
+    <form class="form-horizontal" name="editAddForm">
         <fieldset class="col-lg-6">
             <legend>Edit Ad</legend>
 
@@ -20,8 +20,18 @@
             <div class="form-group">
                 <label for="addImage" class="col-lg-2 control-label">Image</label>
                 <div class="col-lg-10">
-                    <input type="file" ng-file-select="" name="file" accept="image/*" ng-model="userAdd.imageDataURL" onchange="angular.element(this).scope().changePic(this.files)">
+                    <input id="addImage" type="file" ng-file-select="" name="file" accept="image/*" ng-model="userAdd.imageDataURL" onchange="angular.element(this).scope().changePic(this.files)">
                 </div>
+            </div>
+
+            <div class="form-group">
+                <label for="change-image" class="col-lg-2 control-label">{{userAdd.ChangeImage ? 'YES' : 'NO'}}</label>
+                <a id="change-image" class="btn btn-info" href='' ng-click="setChangePic()">Change image</a>
+            </div>
+
+            <div class="form-group">
+                <label for="change-image" class="col-lg-2 control-label"></label>
+                <a id="change-image" class="btn btn-warning" href='' ng-click="deletePic()">Delete image</a>
             </div>
 
             <div class="form-group" ng-controller="FilterController">
@@ -43,7 +53,7 @@
                 </div>
                 <div class="col-md-7">
                     <div class="col-lg-10 col-lg-offset-2">
-                        <button type="submit" class="btn btn-danger" ng-click="deleteUserAdd(userAdd.id)">Delete</button>
+                        <button type="submit" class="btn btn-danger" ng-click="editUserAdd(userAdd, editAddForm)">Edit</button>
                         <a class="btn btn-success" href='#/user/ads'>Cancel</a>
                     </div>
                 </div>
