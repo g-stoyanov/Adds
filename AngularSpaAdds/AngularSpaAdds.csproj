@@ -68,6 +68,7 @@
     <Content Include="app\js\controllers\MainController.js" />
     <Content Include="app\js\controllers\UserAddsController.js" />
     <Content Include="app\js\controllers\UserAdsDataController.js" />
+    <Content Include="app\js\controllers\UserDataController.js" />
     <Content Include="app\js\controllers\UsersController.js" />
     <Content Include="app\js\services\adds.js" />
     <Content Include="app\js\services\categories.js" />

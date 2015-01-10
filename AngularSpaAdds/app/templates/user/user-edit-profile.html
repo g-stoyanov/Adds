@@ -6,13 +6,6 @@
                 <legend>Edit Profile</legend>
 
                 <div class="form-group">
-                    <label for="inputUsername" class="col-lg-2 control-label">Username</label>
-                    <div class="col-lg-10">
-                        <input type="text" ng-required="true" class="form-control form-validation" id="inputUsername" placeholder="Username" ng-model="userProfile.username">
-                    </div>
-                </div>
-
-                <div class="form-group">
                     <label for="inputName" class="col-lg-2 control-label">Name</label>
                     <div class="col-lg-10">
                         <input type="text" ng-required="true" class="form-control form-validation" id="inputName" placeholder="Name" ng-model="userProfile.name">
@@ -29,7 +22,7 @@
                 <div class="form-group">
                     <label for="inputPhone" class="col-lg-2 control-label">Phone</label>
                     <div class="col-lg-10">
-                        <input type="tel" class="form-control" id="inputPhone" placeholder="Phone" ng-model="userProfile.phone">
+                        <input type="tel" class="form-control" id="inputPhone" placeholder="Phone" ng-model="userProfile.phoneNumber">
                     </div>
                 </div>
 
@@ -58,21 +51,21 @@
                 <div class="form-group">
                     <label for="inputOldPassword" class="col-lg-2 control-label">Old password</label>
                     <div class="col-lg-10">
-                        <input type="password" ng-required="true" class="form-control form-validation" id="inputOldPassword" placeholder="Old password" ng-model="userProfile.password">
+                        <input type="password" ng-required="true" class="form-control form-validation" id="inputOldPassword" placeholder="Old password" ng-model="updatePassword.oldPassword">
                     </div>
                 </div>
 
                 <div class="form-group">
                     <label for="inputNewPassword" class="col-lg-2 control-label">New password</label>
                     <div class="col-lg-10">
-                        <input type="password" ng-required="true" class="form-control form-validation" id="inputNewPassword" placeholder="New password" ng-model="userProfile.password">
+                        <input type="password" ng-required="true" class="form-control form-validation" id="inputNewPassword" placeholder="New password" ng-model="updatePassword.newPassword">
                     </div>
                 </div>
 
                 <div class="form-group">
                     <label for="inputConfirmNewPassword" class="col-lg-2 control-label">Confirm new password</label>
                     <div class="col-lg-10">
-                        <input type="password" ng-required="true" class="form-control form-validation" id="inputConfirmNewPassword" placeholder="Confirm new password" ng-model="userProfile.confirmPassword">
+                        <input type="password" ng-required="true" class="form-control form-validation" id="inputConfirmNewPassword" placeholder="Confirm new password" ng-model="updatePassword.confirmPassword">
                     </div>
                 </div>
 

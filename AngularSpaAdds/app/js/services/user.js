@@ -50,13 +50,14 @@
             })
         },
 
-        changeUserPassword: function (success, error) {
+        changeUserPassword: function (success, error, updatePassword) {
             $http({
                 method: 'PUT',
                 url: 'http://softuni-ads.azurewebsites.net/api/User/ChangePassword',
                 headers: {
                     Authorization: 'Bearer ' + sessionStorage.getItem('accessToken')
-                }
+                },
+                data: updatePassword
             })
             .success(function (data, status, headers, config) {
                 success(data);
@@ -67,13 +68,14 @@
             })
         },
 
-        changeUserProfile: function (success, error) {
+        changeUserProfile: function (success, error, userProfile) {
             $http({
                 method: 'PUT',
                 url: 'http://softuni-ads.azurewebsites.net/api/User/Profile',
                 headers: {
                     Authorization: 'Bearer ' + sessionStorage.getItem('accessToken')
-                }
+                },
+                data: userProfile
             })
             .success(function (data, status, headers, config) {
                 success(data);

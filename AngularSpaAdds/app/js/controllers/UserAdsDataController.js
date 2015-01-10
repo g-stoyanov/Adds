@@ -4,7 +4,9 @@
     $scope.addsPaging = addsPaging;
     $scope.addsFiltering = addsFiltering;
 
-    if ($location.path().indexOf("/user/ads/delete/") === -1 && $location.path().indexOf("/user/ads/edit/") === -1) {
+    var path = $location.path();
+
+    if (path.indexOf("/user/ads/delete/") === -1 && path.indexOf("/user/ads/edit/") === -1 && path !== "/user/profile") {
         addsData.getUserAdds(function (resp) {
             $scope.allAddsData.set(resp);
             scope.addsPaging.setCurrentPage(scope.addsPaging.getCurrentPage() === 0 ? 1 : scope.addsPaging.getCurrentPage());
@@ -26,12 +28,12 @@
         }, status, $scope.addsPaging.getCurrentPage(), $scope.addsPaging.getMaxSize());
     }
 
-    if ($location.path().indexOf("/user/ads/delete/") > -1 || $location.path().indexOf("/user/ads/edit/") > -1) {
+    if (path.indexOf("/user/ads/delete/") > -1 || path.indexOf("/user/ads/edit/") > -1) {
 
         addsData.getUserAdd(function (resp) {
             $scope.userAdd = resp;
 
-            if ($location.path().indexOf("/user/ads/edit/") > -1) {
+            if (path.indexOf("/user/ads/edit/") > -1) {
                 var imgPreview = document.getElementById('imagePreview');
                 imgPreview.src = $scope.userAdd.imageDataUrl;
                 $scope.userAdd.ChangeImage = false;
