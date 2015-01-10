@@ -1,47 +1,47 @@
-﻿<div class="add-container">
-    <fieldset class="col-lg-6">
-        <legend>Confirm Deleting Ad?</legend>
-        <div class="row">
-            <div class="col-md-7">
-                <h4 class="pull-left">
-                    {{ad.title}}
-                </h4>
-            </div>
-            <div class="col-md-5">
-                <span class="pull-right">
-                    {{ad.date | date: 'd-MMM-yyyy'}}
-                </span>
+﻿<h3>Confirm Deleting Ad?</h3>
+<div class="add-container" ng-controller="UserAddsDataController">
+    <div class="row">
+        <div class="col-md-7">
+            <h4 class="pull-left">
+                {{userAdd.title}}
+            </h4>
+        </div>
+        <div class="col-md-5">
+            <span class="pull-right">
+                {{userAdd.date | date: 'd-MMM-yyyy'}}
+            </span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-3">
+            <div class="img-container">
+                <img src="" ng-src="{{userAdd.imageDataUrl ? userAdd.imageDataUrl : 'img/No_image_available.svg'}}" class="add-img" />
             </div>
         </div>
-        <div class="row">
-            <div class="col-md-3">
-                <div class="img-container">
-                    <img src="" ng-src="{{ad.imageDataUrl ? ad.imageDataUrl : 'img/No_image_available.svg'}}" class="add-img" />
-                </div>
-            </div>
-            <div class="col-md-7">
-                <div class="add-text">{{ad.text}}</div>
-                <table class="table table-striped">
-                    <tbody>
-                        <tr>
-                            <td>Category:</td>
-                            <td>{{ad.categoryName | limitTo: 40 }}</td>
-                        </tr>
-                        <tr>
-                            <td>Town:</td>
-                            <td>{{ad.townName | limitTo: 40 }}</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-            <div class="col-md-2">
-                <label for="status" class="col-lg-10 control-label">Status</label>
-                <div id="status">{{ad.status}}</div>
+        <div class="col-md-9">
+            <div class="add-text">{{userAdd.text}}</div>
+            <table class="table table-striped">
+                <tbody>
+                    <tr>
+                        <td>Category:</td>
+                        <td>{{userAdd.categoryName | limitTo: 40 }}</td>
+                    </tr>
+                    <tr>
+                        <td>Town:</td>
+                        <td>{{userAdd.townName | limitTo: 40 }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-3">
+        </div>
+        <div class="col-md-9">
+            <div class="col-lg-10 col-lg-offset-2">
+                <button type="submit" class="btn btn-danger" ng-click="deleteUserAdd(userAdd.id)">Delete</button>
+                <a class="btn btn-success" href='#/user/ads'>Cancel</a>
             </div>
         </div>
-        <div class="col-lg-10 col-lg-offset-2">
-            <button type="submit" class="btn btn-danger" ng-click="deleteUserAdd(ad.id)">Delete</button>
-            <a class="btn btn-success" href='#/user/ads'>Cancel</a>
-        </div>
-    </fieldset>
+    </div>
 </div>

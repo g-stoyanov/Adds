@@ -42,7 +42,7 @@
             <div ng-if="ad.status === 'Inactive'">
                 <button type="submit" class="btn btn-primary user-ads-button" ng-click="register(user, registrationForm)">Edit</button>
                 <button type="submit" class="btn btn-success user-ads-button" ng-click="publishAgainUserAdd(ad.id)">Publish Again</button>
-                <button type="submit" class="btn btn-danger user-ads-button" ng-click="register(user, registrationForm)">Delete</button>
+                <button type="submit" class="btn btn-danger user-ads-button" ng-click="deleteUserAdd(ad.id)">Delete</button>
             </div>
             </div>
         </div>

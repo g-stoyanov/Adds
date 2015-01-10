@@ -34,7 +34,7 @@
 
     $scope.deactivateUserAdd = function (id) {
         addsData.deactivateUserAdd(function (resp) {
-            notifier.success('Successfully deactivate add.');
+            notifier.success('Successfully deactivate advertisement.');
             reloadUserAdds($scope, addsData, false, '');
             $location.path('/user/ads');
         }, function (resp, status, headers, config) {
@@ -45,13 +45,17 @@
 
     $scope.publishAgainUserAdd = function (id) {
         addsData.publishAgainUserAdd(function (resp) {
-            notifier.success('Successfully publish add.');
+            notifier.success('Advertisement submitted for approval. Once approved, it will be published.');
             reloadUserAdds($scope, addsData, false, '');
             $location.path('/user/ads');
         }, function (resp, status, headers, config) {
             $log.error('Status: ' + status + '\nData: ' + JSON.stringify(resp));
             notifier.error(resp.modelState[""]);
         }, id)
+    }
+
+    $scope.deleteUserAdd = function (id) {
+        $location.path('/user/ads/delete/' + id);
     }
 
     $scope.goToPage = function (mod) {

@@ -29,7 +29,7 @@
     });
 
     $routeProvider.when('/user/ads', {
-        templateUrl: 'templates/user/user-my-ads.html',
+        templateUrl: 'templates/adds/user-my-ads.html',
         controller: 'UserAddsController'
     });
 
@@ -38,7 +38,7 @@
     });
 
     $routeProvider.when('/user/ads/delete/:id', {
-        templateUrl: 'templates/user-delete-add.html'
+        templateUrl: 'templates/adds/user-delete-ad.html'
     });
 
     $routeProvider.when('/user/profile', {
