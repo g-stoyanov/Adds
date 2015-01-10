@@ -5,74 +5,60 @@
     templates,
     addsTransferData,
     addsData,
+    adminAddsData,
     addsFiltering,
+    adminAddsFiltering,
     addsPaging,
     categoriesData,
     townsData,
     notifier,
-    reloadUserAdds) {
+    reloadAdminAdds) {
 
     $scope.allAddsData = addsTransferData;
     $scope.addsPaging = addsPaging;
     $scope.addsFiltering = addsFiltering;
+    $scope.adminAddsFiltering = adminAddsFiltering;
     $scope.templates = templates;
     $scope.category = {};
     $scope.town = {};
     $scope.add = {};
+    $scope.filterBy = '';
+    $scope.status = '';
 
     $scope.allAddsData.set([]);
 
-    $scope.reloadUserAdds = function (isFilter) {
-        reloadUserAdds($scope, addsData, isFilter, "");
+    $scope.getTownName = function (id) {
+        townsData.getAllTowns(function (resp) {
+            for (var town in resp) {
+                if (town.id === id) {
+                    return town.name;
+                }
+            }
+        });
     }
 
-    $scope.getUserAddsByStatus = function (status) {
-        reloadUserAdds($scope, addsData, false, status);
+    $scope.getCategoryName = function (id) {
+
     }
 
-    reloadUserAdds($scope, addsData, false, '');
-
-    $scope.deactivateUserAdd = function (id) {
-        addsData.deactivateUserAdd(function (resp) {
-            notifier.success('Successfully deactivate advertisement.');
-            reloadUserAdds($scope, addsData, false, '');
-            $location.path('/user/ads');
-        }, function (resp, status, headers, config) {
-            $log.error('Status: ' + status + '\nData: ' + JSON.stringify(resp));
-            notifier.error(resp.modelState[""]);
-        }, id)
+    $scope.reloadAdminAdds = function (isFilter) {
+        reloadAdminAdds($scope, adminAddsData, isFilter, "");
     }
 
-    $scope.publishAgainUserAdd = function (id) {
-        addsData.publishAgainUserAdd(function (resp) {
-            notifier.success('Advertisement submitted for approval. Once approved, it will be published.');
-            reloadUserAdds($scope, addsData, false, '');
-            $location.path('/user/ads');
-        }, function (resp, status, headers, config) {
-            $log.error('Status: ' + status + '\nData: ' + JSON.stringify(resp));
-            notifier.error(resp.modelState[""]);
-        }, id)
-    }
+    reloadAdminAdds($scope, adminAddsData, false, '');
 
-    $scope.deleteUserAdd = function (id) {
-        $location.path('/user/ads/delete/' + id);
-    }
-
-    $scope.editUserAdd = function (id) {
-        $location.path('/user/ads/edit/' + id);
-    }
 
     $scope.goToPage = function (mod) {
         if ($scope.addsPaging.getCurrentPage() + mod > 0 && $scope.addsPaging.getCurrentPage() + mod <= $scope.addsPaging.getNumPages()) {
             $scope.addsPaging.setCurrentPage($scope.addsPaging.getCurrentPage() + mod);
-            $scope.reloadUserAdds(false);
+            $scope.reloadAdminAdds(false);
         }
     }
 
     $scope.borderPages = function (page) {
         if (page > 0 && page <= $scope.addsPaging.getNumPages()) {
             $scope.addsPaging.setCurrentPage(page);
-            $scope.reloadUserAdds(false);
+            $scope.reloadAdminAdds(false);
         }
     }
 

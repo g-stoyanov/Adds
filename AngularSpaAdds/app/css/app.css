@@ -30,6 +30,6 @@
 }
 
 .add-table-info {
-    width:1px !important;
     text-align:left !important;
+    padding:5px !important;
 }

@@ -1,8 +1,9 @@
-﻿angularSpaAdds.controller('AdminAddsDataController', function ($scope, adminAddsData, notifier, addsTransferData, addsPaging, addsFiltering) {
+﻿angularSpaAdds.controller('AdminAddsDataController', function ($scope, adminAddsData, notifier, addsTransferData, addsPaging, addsFiltering, adminAddsFiltering) {
 
     $scope.allAddsData = addsTransferData;
     $scope.addsPaging = addsPaging;
     $scope.addsFiltering = addsFiltering;
+    $scope.adminAddsFiltering = adminAddsFiltering;
 
     adminAddsData.getAdminAllAdds(function (resp) {
         $scope.allAddsData.set(resp);
@@ -17,5 +18,11 @@
     }, function (resp, status, headers, config) {
         $log.error('Status: ' + status + '\nData: ' + JSON.stringify(resp));
         notifier.error(resp.modelState[""]);
-    }, $scope.addsFiltering.getCategory(), $scope.addsFiltering.getTown(), $scope.addsPaging.getCurrentPage(), $scope.addsPaging.getMaxSize());
+    },
+    $scope.adminAddsFiltering.getStatus(),
+    $scope.addsFiltering.getCategory(),
+    $scope.addsFiltering.getTown(),
+    $scope.adminAddsFiltering.getSortBy(),
+    $scope.addsPaging.getCurrentPage(),
+    $scope.addsPaging.getMaxSize());
 })
