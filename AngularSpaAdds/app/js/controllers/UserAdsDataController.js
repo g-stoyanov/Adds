@@ -67,6 +67,8 @@
                 notifier.error("Cannot update advertisement.");
                 $location.path('/user/ads');
             }, userAdd);
+        } else {
+            notifier.error('Invalid advertisement data!');
         }
     }
 

@@ -1,4 +1,4 @@
-﻿angularSpaAdds.factory('userData', function ($http) {
+﻿angularSpaAdds.factory('userData', function ($http, $log) {
     return {
 
         register: function (success, error, user, registrationForm) {
@@ -46,7 +46,7 @@
             })
             .error(function (data, status, headers, config) {
                 $log.error(data);
-                error(data);
+                error(data, status, headers, config);
             })
         },
 
@@ -64,7 +64,7 @@
             })
             .error(function (data, status, headers, config) {
                 $log.error(data);
-                error(data);
+                error(data, status, headers, config);
             })
         },
 
@@ -82,7 +82,7 @@
             })
             .error(function (data, status, headers, config) {
                 $log.error(data);
-                error(data);
+                error(data, status, headers, config);
             })
         },
 
@@ -99,7 +99,7 @@
             })
             .error(function (data, status, headers, config) {
                 $log.error(data);
-                error(data);
+                error(data, status, headers, config);
             })
         }
     }

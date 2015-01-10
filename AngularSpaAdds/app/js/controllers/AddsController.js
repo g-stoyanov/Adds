@@ -51,7 +51,9 @@
                 $log.error('Status: ' + status + '\nData: ' + JSON.stringify(resp));
                 notifier.error(resp.modelState[""]);
             }, $scope.add);
-        } 
+        } else {
+            notifier.error('Invalid advertisement data!');
+        }
     }
 
     $scope.changePic = function (files) {

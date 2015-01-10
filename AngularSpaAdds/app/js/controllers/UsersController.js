@@ -33,7 +33,11 @@
             
         }, function (resp, status, headers, config) {
             $log.error('Status: ' + status + '\nData: ' + JSON.stringify(resp));
-            notifier.error(resp.modelState[""]);
+            notifier.error('Cannot create account!');
+            if (resp.modelState[""]) {
+                notifier.error(resp.modelState[""]);
+            }
+
         }, user, registrationForm);
     }
 
@@ -49,6 +53,10 @@
         }, function (resp, status, headers, config) {
             $log.error('Status: ' + status + '\nData: ' + JSON.stringify(resp));
             notifier.error(resp.error_description);
+            if (resp.modelState[""]) {
+                notifier.error(resp.modelState[""]);
+            }
+
         }, loginUser, loginForm);
     }
 
@@ -59,7 +67,53 @@
             $location.path('/');
         }, function (resp, status, headers, config) {
             $log.error('Status: ' + status + '\nData: ' + JSON.stringify(resp));
-            notifier.error(resp.modelState[""]);
+            notifier.error('Logout error!');
+            if (resp.modelState[""]) {
+                notifier.error(resp.modelState[""]);
+            }
+
+            $location.path('/');
         })
     }
+
+    $scope.updateUserProfile = function (userProfile, editProfileForm) {
+        if (editProfileForm.$valid) {
+            userData.changeUserProfile(function (resp) {
+                notifier.success('Successfully update user profile.');
+                $location.path('/user/home');
+            }, function (resp, status, headers, config) {
+                $log.error('Status: ' + status + '\nData: ' + JSON.stringify(resp));
+                notifier.error('Cannot update user profile.');
+                if (resp.modelState[""]) {
+                    notifier.error(resp.modelState[""]);
+                }
+
+                $location.path('/user/home');
+            }, userProfile)
+        } else {
+            notifier.error('Invalid user profile data!');
+        }
+        
+    }
+
+    $scope.updateUserPassword = function (updatePassword, editPasswordForm) {
+        if (editPasswordForm.$valid) {
+            userData.changeUserPassword(function (resp) {
+                notifier.success('Successfully update user password.');
+                $location.path('/user/home');
+            }, function (resp, status, headers, config) {
+                $log.error('Status: ' + status + '\nData: ' + JSON.stringify(resp));
+                notifier.error('Cannot update user password.');
+                if (resp.modelState[""]) {
+                    notifier.error(resp.modelState[""]);
+                }
+
+                $location.path('/user/home');
+            }, updatePassword)
+        } else {
+            notifier.error('Invalid user password data!');
+        }
+    }
+
+
 })

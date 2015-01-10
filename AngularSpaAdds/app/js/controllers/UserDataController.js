@@ -1,4 +1,4 @@
-﻿angularSpaAdds.controller('UsersController', function (
+﻿angularSpaAdds.controller('UserDataController', function (
     $scope,
     $log,
     $location,
@@ -7,6 +7,7 @@
 
     $scope.userProfile = {};
     $scope.updatePassword = {};
+    var path = $location.path();
 
     if (path === "/user/profile") {
         userData.getUserProfile(function (resp) {
