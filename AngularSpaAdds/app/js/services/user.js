@@ -31,6 +31,57 @@
                         error(data, status, headers, config);
                     })
             }
+        },
+
+        changeUserPassword: function (success, error) {
+            $http({
+                method: 'PUT',
+                url: 'http://softuni-ads.azurewebsites.net/api/User/ChangePassword',
+                headers: {
+                    Authorization: 'Bearer ' + sessionStorage.getItem('accessToken')
+                }
+            })
+            .success(function (data, status, headers, config) {
+                success(data);
+            })
+            .error(function (data, status, headers, config) {
+                $log.error(data);
+                error(data);
+            })
+        },
+
+        changeUserProfile: function (success, error) {
+            $http({
+                method: 'PUT',
+                url: 'http://softuni-ads.azurewebsites.net/api/User/Profile',
+                headers: {
+                    Authorization: 'Bearer ' + sessionStorage.getItem('accessToken')
+                }
+            })
+            .success(function (data, status, headers, config) {
+                success(data);
+            })
+            .error(function (data, status, headers, config) {
+                $log.error(data);
+                error(data);
+            })
+        },
+
+        getUserProfile: function (success, error) {
+            $http({
+                method: 'GET',
+                url: 'http://softuni-ads.azurewebsites.net/api/User/Profile',
+                headers: {
+                    Authorization: 'Bearer ' + sessionStorage.getItem('accessToken')
+                }
+            })
+            .success(function (data, status, headers, config) {
+                success(data);
+            })
+            .error(function (data, status, headers, config) {
+                $log.error(data);
+                error(data);
+            })
         }
     }
 })

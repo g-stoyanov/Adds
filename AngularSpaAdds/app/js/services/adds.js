@@ -44,6 +44,91 @@
                 $log.error(data);
                 error(data);
             })
+        },
+
+        userDeactivateAdd: function (success, error, id) {
+            $http({
+                method: 'PUT',
+                url: 'http://softuni-ads.azurewebsites.net/api/User/Ads/Deactivate/' + id,
+                headers: {
+                    Authorization: 'Bearer ' + sessionStorage.getItem('accessToken')
+                }
+            })
+            .success(function (data, status, headers, config) {
+                success(data);
+            })
+            .error(function (data, status, headers, config) {
+                $log.error(data);
+                error(data);
+            })
+        },
+
+        userEditAdd: function (success, error, id) {
+            $http({
+                method: 'PUT',
+                url: 'http://softuni-ads.azurewebsites.net/api/User/Ads/' + id,
+                headers: {
+                    Authorization: 'Bearer ' + sessionStorage.getItem('accessToken')
+                }
+            })
+            .success(function (data, status, headers, config) {
+                success(data);
+            })
+            .error(function (data, status, headers, config) {
+                $log.error(data);
+                error(data);
+            })
+        },
+
+        userPublishAgainAdd: function (success, error, id) {
+            $http({
+                method: 'PUT',
+                url: 'http://softuni-ads.azurewebsites.net/api/User/Ads/PublishAgain/' + id,
+                headers: {
+                    Authorization: 'Bearer ' + sessionStorage.getItem('accessToken')
+                }
+            })
+            .success(function (data, status, headers, config) {
+                success(data);
+            })
+            .error(function (data, status, headers, config) {
+                $log.error(data);
+                error(data);
+            })
+        },
+
+        getUserAdd: function (success, error, id) {
+            $http({
+                method: 'GET',
+                url: 'http://softuni-ads.azurewebsites.net/api/User/Ads/' + id,
+                headers: {
+                    Authorization: 'Bearer ' + sessionStorage.getItem('accessToken')
+                }
+            })
+            .success(function (data, status, headers, config) {
+                success(data);
+            })
+            .error(function (data, status, headers, config) {
+                $log.error(data);
+                error(data);
+            })
+        },
+
+        deleteUserAdd: function (success, error, id) {
+            $http({
+                method: 'DELETE',
+                url: 'http://softuni-ads.azurewebsites.net/api/User/Ads/' + id,
+                headers: {
+                    Authorization: 'Bearer ' + sessionStorage.getItem('accessToken')
+                }
+            })
+            .success(function (data, status, headers, config) {
+                success(data);
+            })
+            .error(function (data, status, headers, config) {
+                $log.error(data);
+                error(data);
+            })
         }
     }
 });
