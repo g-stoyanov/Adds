@@ -1,6 +1,10 @@
 ﻿angularSpaAdds.factory('addsData', function ($http, $log) {
     return {
         getAllAdds: function (success, error, categoryId, townId, startPage, pageSize) {
+            if (startPage === 0) {
+                startPage === 1
+            }
+
             $http({ method: 'GET', url: 'http://softuni-ads.azurewebsites.net/api/Ads?CategoryId=' + categoryId + '&TownId=' + townId + '&StartPage=' + startPage + '&PageSize=' + pageSize })
             .success(function (data, status, headers, config) {
                 success(data);
@@ -30,6 +34,14 @@
         },
 
         getUserAdds: function (success, error, status, startPage, pageSize) {
+            if (startPage === 0) {
+                startPage === 1
+            }
+
+            if (!status) {
+                status = '';
+            }
+
             $http({
                 method: 'GET',
                 url: 'http://softuni-ads.azurewebsites.net/api/User/Ads?Status=' + status + '&StartPage=' + startPage + '&PageSize=' + pageSize,

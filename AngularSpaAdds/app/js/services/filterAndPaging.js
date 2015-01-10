@@ -1,4 +1,4 @@
-﻿angularSpaAdds.factory('reloadAdds', function ($log) {
+﻿angularSpaAdds.factory('reloadAdds', function ($log, notifier) {
     return function (scope, addsData, isFilter) {
 
         if (isFilter) {
@@ -20,7 +20,7 @@
         }, function (resp, status, headers, config) {
             $log.error('Status: ' + status + '\nData: ' + JSON.stringify(resp));
             notifier.error(resp.modelState[""]);
-        }, scope.addsFiltering.getCategory() ? scope.addsFiltering.getCategory() : '', scope.addsFiltering.getTown() ? scope.addsFiltering.getTown() : '', scope.addsPaging.getCurrentPage(), scope.addsPaging.getMaxSize());
+        }, scope.addsFiltering.getCategory(), scope.addsFiltering.getTown(), scope.addsPaging.getCurrentPage(), scope.addsPaging.getMaxSize());
     };
 })
 
@@ -46,6 +46,6 @@ angularSpaAdds.factory('reloadUserAdds', function ($log) {
         }, function (resp, status, headers, config) {
             $log.error('Status: ' + status + '\nData: ' + JSON.stringify(resp));
             notifier.error(resp.modelState[""]);
-        }, status, scope.addsPaging.getCurrentPage() === 0 ? 1 : scope.addsPaging.getCurrentPage(), scope.addsPaging.getMaxSize());
+        }, status, scope.addsPaging.getCurrentPage(), scope.addsPaging.getMaxSize());
     };
 })

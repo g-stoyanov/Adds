@@ -22,7 +22,7 @@
         }, function (resp, status, headers, config) {
             $log.error('Status: ' + status + '\nData: ' + JSON.stringify(resp));
             notifier.error(resp.modelState[""]);
-        }, status, $scope.addsPaging.getCurrentPage() === 0 ? 1 : $scope.addsPaging.getCurrentPage(), $scope.addsPaging.getMaxSize());
+        }, status, $scope.addsPaging.getCurrentPage(), $scope.addsPaging.getMaxSize());
     }
 
     addsData.getUserAdd(function (resp) {

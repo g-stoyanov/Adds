@@ -17,5 +17,5 @@
         }, function (resp, status, headers, config) {
             $log.error('Status: ' + status + '\nData: ' + JSON.stringify(resp));
             notifier.error(resp.modelState[""]);
-        }, $scope.addsFiltering.getCategory() ? $scope.addsFiltering.getCategory() : '', $scope.addsFiltering.getTown() ? $scope.addsFiltering.getTown() : '', $scope.addsPaging.getCurrentPage() === 0 ? 1 : $scope.addsPaging.getCurrentPage(), $scope.addsPaging.getMaxSize());
+        }, $scope.addsFiltering.getCategory(), $scope.addsFiltering.getTown(), $scope.addsPaging.getCurrentPage(), $scope.addsPaging.getMaxSize());
 })
