@@ -10,9 +10,6 @@
         "userHomeNavigation": "templates/user/user-home-nav.html",
         "userMyAdsPanel": "templates/user/user-my-ads-panel.html",
         "userHeader": "templates/user/userHeader.html",
-        "add": "templates/adds/add.html",
-        "userAllAdds": "templates/user/user-my-ads.html",
-        "userAllAddsAdd": "templates/user/user-all-ads-ad.html",
 
         //admin
         "adminHomeNavigation": "templates/admin/admin-home-nav.html",
@@ -27,6 +24,9 @@
         //adds
         "add": "templates/adds/add.html",
         "allAdds": "templates/adds/all-ads.html",
+        "add": "templates/adds/add.html",
+        "userAllAdds": "templates/adds/user-my-ads.html",
+        "userAllAddsAdd": "templates/adds/user-all-ads-ad.html",
 
         //misc
         "pagination": "templates/misc/pagination.html"

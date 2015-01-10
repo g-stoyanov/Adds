@@ -1,0 +1,10 @@
+﻿<div>
+    <ul>
+        <li ng-repeat="ad in allAddsData.get()">
+            <div ng-include="templates.userAllAddsAdd">
+            </div>
+        </li>
+    </ul>
+
+    <div ng-include="templates.pagination"></div>
+</div>
