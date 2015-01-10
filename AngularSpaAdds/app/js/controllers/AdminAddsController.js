@@ -1,4 +1,4 @@
-﻿angularSpaAdds.controller('UserAddsController', function (
+﻿angularSpaAdds.controller('AdminAddsController', function (
     $scope,
     $log,
     $location,

@@ -72,6 +72,7 @@
     <Content Include="app\js\controllers\UserDataController.js" />
     <Content Include="app\js\controllers\UsersController.js" />
     <Content Include="app\js\services\adds.js" />
+    <Content Include="app\js\services\adminAdds.js" />
     <Content Include="app\js\services\categories.js" />
     <Content Include="app\js\services\filterAndPaging.js" />
     <Content Include="app\js\services\notifier.js" />
