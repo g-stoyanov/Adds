@@ -1,53 +1,58 @@
-﻿<form class="form-horizontal" name="publishAddForm" ng-controller="UserAddsDataController">
-    <fieldset class="col-lg-6">
-        <legend>Edit Ad</legend>
+﻿<div ng-controller="UserAddsDataController">
+    <form class="form-horizontal" name="publishAddForm">
+        <fieldset class="col-lg-6">
+            <legend>Edit Ad</legend>
 
-        <div class="form-group">
-            <label for="addTitle" class="col-lg-2 control-label">Title</label>
-            <div class="col-lg-10">
-                <input type="text" ng-required="true" class="form-control form-validation" id="addTitle" placeholder="Title" ng-model="userAdd.title" ng-value="userAdd.title">
+            <div class="form-group">
+                <label for="addTitle" class="col-lg-2 control-label">Title</label>
+                <div class="col-lg-10">
+                    <input type="text" ng-required="true" class="form-control form-validation" id="addTitle" placeholder="Title" ng-model="userAdd.title" ng-value="userAdd.title">
+                </div>
             </div>
-        </div>
 
-        <div class="form-group">
-            <label for="addText" class="col-lg-2 control-label">Text</label>
-            <div class="col-lg-10">
-                <textarea ng-required="true" class="form-control form-validation" id="addText" placeholder="Text" ng-model="userAdd.text" rows="6" ng-value="userAdd.text"></textarea>
+            <div class="form-group">
+                <label for="addText" class="col-lg-2 control-label">Text</label>
+                <div class="col-lg-10">
+                    <textarea ng-required="true" class="form-control form-validation" id="addText" placeholder="Text" ng-model="userAdd.text" rows="6" ng-value="userAdd.text"></textarea>
+                </div>
             </div>
-        </div>
 
-        <div class="form-group">
-            <label for="addImage" class="col-lg-2 control-label">Image</label>
-            <div class="col-lg-10">
-                <input type="file" ng-file-select="" name="file" accept="image/*" ng-model="userAdd.imageDataURL" onchange="angular.element(this).scope().changePic(this.files)">
+            <div class="form-group">
+                <label for="addImage" class="col-lg-2 control-label">Image</label>
+                <div class="col-lg-10">
+                    <input type="file" ng-file-select="" name="file" accept="image/*" ng-model="userAdd.imageDataURL" onchange="angular.element(this).scope().changePic(this.files)">
+                </div>
             </div>
-        </div>
 
-        <div class="form-group" ng-controller="FilterController">
-            <label for="addCategory" class="col-lg-2 control-label">Category</label>
-            <div class="col-lg-10">
-                <select class="form-control" id="addCategory" ng-model="userAdd.categoryId" ng-options="category.id as category.name for category in allCategoriesData" ng-file-change="reloadAdds(true)" ng-value="userAdd.categoryId">
-                    <option value="">-- choose category --</option>
-                </select>
+            <div class="form-group" ng-controller="FilterController">
+                <label for="addCategory" class="col-lg-2 control-label">Category</label>
+                <div class="col-lg-10">
+                    <select class="form-control" id="addCategory" ng-model="userAdd.categoryId" ng-options="category.id as category.name for category in allCategoriesData" ng-file-change="reloadAdds(true)" ng-value="userAdd.categoryId">
+                        <option value="">-- choose category --</option>
+                    </select>
+                </div>
+                <label for="addTown" class="col-lg-2 control-label">Town</label>
+                <div class="col-lg-10">
+                    <select class="form-control" id="addTown" ng-model="userAdd.townId" ng-options="town.id as town.name for town in allTownsData" ng-value="userAdd.townId">
+                        <option value="">-- choose town --</option>
+                    </select>
+                </div>
             </div>
-            <label for="addTown" class="col-lg-2 control-label">Town</label>
-            <div class="col-lg-10">
-                <select class="form-control" id="addTown" ng-model="userAdd.townId" ng-options="town.id as town.name for town in allTownsData" ng-value="userAdd.townId">
-                    <option value="">-- choose town --</option>
-                </select>
+            <div class="row">
+                <div class="col-md-5">
+                </div>
+                <div class="col-md-7">
+                    <div class="col-lg-10 col-lg-offset-2">
+                        <button type="submit" class="btn btn-danger" ng-click="deleteUserAdd(userAdd.id)">Delete</button>
+                        <a class="btn btn-success" href='#/user/ads'>Cancel</a>
+                    </div>
+                </div>
             </div>
+        </fieldset>
+    </form>
+    <div class="col-md-4">
+        <div class="img-container">
+            <img id="imagePreview" alt="Image preview" class="add-img" />
         </div>
-
-        <div class="form-group">
-            <div class="col-lg-10 col-lg-offset-2">
-                <a class="btn btn-default" href="#/user/home">Cancel</a>
-                <button type="submit" class="btn btn-primary" ng-click="publish(publishAddForm)">Publish</button>
-            </div>
-        </div>
-    </fieldset>
-</form>
-<div class="col-md-4">
-    <div class="img-container">
-        <img id="imagePreview" alt="Image preview" class="add-img" />
     </div>
 </div>

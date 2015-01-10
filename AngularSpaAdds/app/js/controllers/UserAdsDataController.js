@@ -21,7 +21,8 @@
             $scope.addsPaging.setNumPages(resp.numPages);
         }, function (resp, status, headers, config) {
             $log.error('Status: ' + status + '\nData: ' + JSON.stringify(resp));
-            notifier.error(resp.modelState[""]);
+            notifier.error("Cannot load advertisements data.");
+            $location.path('/user/home');
         }, status, $scope.addsPaging.getCurrentPage(), $scope.addsPaging.getMaxSize());
     }
 
@@ -29,9 +30,12 @@
 
         addsData.getUserAdd(function (resp) {
             $scope.userAdd = resp;
+            var imgPreview = document.getElementById('imagePreview');
+            imgPreview.src = $scope.userAdd.imageDataUrl;
         }, function (resp, status, headers, config) {
             $log.error('Status: ' + status + '\nData: ' + JSON.stringify(resp));
-            notifier.error(resp.modelState[""]);
+            notifier.error("Cannot load advertisement data.");
+            $location.path('/user/ads');
         }, $routeParams.id);
     }
 
@@ -41,17 +45,19 @@
             $location.path('/user/ads');
         }, function (resp, status, headers, config) {
             $log.error('Status: ' + status + '\nData: ' + JSON.stringify(resp));
-            notifier.error(resp.modelState[""]);
+            notifier.error("Cannot delete advertisement.");
+            $location.path('/user/ads');
         }, id);
     }
 
     $scope.editUserAdd = function (id) {
         addsData.editUserAdd(function (resp) {
-            notifier.success('Advertisement successfully updated.');
+            notifier.success("Advertisement edited. Don't forget to submit it for publishing.");
             $location.path('/user/ads');
         }, function (resp, status, headers, config) {
             $log.error('Status: ' + status + '\nData: ' + JSON.stringify(resp));
-            notifier.error(resp.modelState[""]);
+            notifier.error("Cannot update advertisement.");
+            $location.path('/user/ads');
         }, id);
     }
 

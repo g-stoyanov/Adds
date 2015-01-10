@@ -22,7 +22,8 @@
 
     $scope.register = function (user, registrationForm) {
         userData.register(function (resp) {
-            notifier.success('Successfully registered');
+            notifier.success('User account created.');
+            notifier.success('Hello ' + resp.username + ', we welcome the fact that you decided to use our services.');
             $scope.registerLogin(resp);
             if (resp['isAdmin'] != 'true') {
                 $location.path('/user/home');
