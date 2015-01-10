@@ -37,3 +37,28 @@
         }
     }
 });
+
+angularSpaAdds.factory('adminAddsFiltering', function () {
+    var status = '';
+    var sortBy = '';
+    var ctrl = {};
+
+    ctrl.setStatus = function (d) {
+        status = d;
+    };
+
+    ctrl.getStatus = function () {
+        return status;
+    };
+
+
+    ctrl.setSortBy = function (d) {
+        sortBy = d;
+    };
+
+    ctrl.getSortBy = function () {
+        return sortBy;
+    };
+
+    return ctrl;
+});

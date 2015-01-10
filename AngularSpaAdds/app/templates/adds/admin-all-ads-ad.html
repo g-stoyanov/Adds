@@ -1,4 +1,4 @@
-﻿<div class="add-container">
+﻿<div class="add-container" ng-controller="AdminAddsDataController">
     <div class="row">
         <div class="col-md-7">
             <h4 class="pull-left">
@@ -22,6 +22,10 @@
             <table class="my-table">
                 <tbody>
                     <tr>
+                        <td class="add-table-info">Username:</td>
+                        <td class="add-table-info">{{ad.userName | limitTo: 40}}</td>
+                    </tr>
+                    <tr>
                         <td class="add-table-info">Name:</td>
                         <td class="add-table-info">{{ad.ownerName | limitTo: 40}}</td>
                     </tr>
@@ -32,6 +36,14 @@
                     <tr>
                         <td class="add-table-info">Phone:</td>
                         <td class="add-table-info">{{ad.ownerPhone | limitTo: 40}}</td>
+                    </tr>
+                    <tr>
+                        <td class="add-table-info">Category:</td>
+                        <td class="add-table-info">{{ad.categoryName | limitTo: 40}}</td>
+                    </tr>
+                    <tr>
+                        <td class="add-table-info">Town:</td>
+                        <td class="add-table-info">{{ad.townName | limitTo: 40}}</td>
                     </tr>
                 </tbody>
             </table>
