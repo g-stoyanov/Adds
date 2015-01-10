@@ -18,7 +18,7 @@
             </div>
         </div>
         <div class="col-md-7">
-            <p class="text-info add-text">{{ad.text}}</p>
+            <div class="add-text">{{ad.text}}</div>
             <table class="table table-striped">
                 <tbody>
                     <tr>
@@ -36,15 +36,14 @@
             <label for="status" class="col-lg-10 control-label">Status</label>
             <div id="status">{{ad.status}}</div>
             <br />
-            <div ng-if="ad.id == 0">
-                <button type="submit" class="btn btn-primary" ng-click="register(user, registrationForm)">Edit</button>
-                <button type="submit" class="btn btn-primary" ng-click="register(user, registrationForm)">Publish Again</button>
-                <button type="submit" class="btn btn-primary" ng-click="register(user, registrationForm)">Delete</button>
+            <div ng-if="ad.status === 'Published' || ad.status === 'WaitingApproval'">
+                <button type="submit" class="btn btn-danger user-ads-button" ng-click="deactivateUserAdd(ad.id)">Deactivate</button>
             </div>
-            <div ng-if="ad.id == 1">
-                <button type="submit" class="btn btn-primary" ng-click="register(user, registrationForm)">Deactivate</button>
+            <div ng-if="ad.status === 'Inactive'">
+                <button type="submit" class="btn btn-primary user-ads-button" ng-click="register(user, registrationForm)">Edit</button>
+                <button type="submit" class="btn btn-success user-ads-button" ng-click="register(user, registrationForm)">Publish Again</button>
+                <button type="submit" class="btn btn-danger user-ads-button" ng-click="register(user, registrationForm)">Delete</button>
             </div>
-            
             </div>
         </div>
     </div>

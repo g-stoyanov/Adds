@@ -46,7 +46,7 @@
             })
         },
 
-        userDeactivateAdd: function (success, error, id) {
+        deactivateUserAdd: function (success, error, id) {
             $http({
                 method: 'PUT',
                 url: 'http://softuni-ads.azurewebsites.net/api/User/Ads/Deactivate/' + id,
@@ -63,7 +63,7 @@
             })
         },
 
-        userEditAdd: function (success, error, id) {
+        editUserAdd: function (success, error, id) {
             $http({
                 method: 'PUT',
                 url: 'http://softuni-ads.azurewebsites.net/api/User/Ads/' + id,
@@ -80,7 +80,7 @@
             })
         },
 
-        userPublishAgainAdd: function (success, error, id) {
+        publishAgainUserAdd: function (success, error, id) {
             $http({
                 method: 'PUT',
                 url: 'http://softuni-ads.azurewebsites.net/api/User/Ads/PublishAgain/' + id,

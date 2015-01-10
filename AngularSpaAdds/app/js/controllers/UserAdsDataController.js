@@ -13,6 +13,10 @@
             scope.addsPaging.setCurrentPage(scope.addsPaging.getCurrentPage());
         }
 
+        if (!status) {
+            status = '';
+        }
+
         $scope.addsPaging.setNumPages(resp.numPages);
     }, function (resp, status, headers, config) {
         $log.error('Status: ' + status + '\nData: ' + JSON.stringify(resp));

@@ -13,7 +13,6 @@
         "add": "templates/adds/add.html",
         "userAllAdds": "templates/user/user-my-ads.html",
         "userAllAddsAdd": "templates/user/user-all-ads-ad.html",
-        "userInactiveAddsAdd": "templates/user/user-inacive-ads-ad.html",
 
         //admin
         "adminHomeNavigation": "templates/admin/admin-home-nav.html",

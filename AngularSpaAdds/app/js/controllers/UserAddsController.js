@@ -30,7 +30,29 @@
         reloadUserAdds($scope, addsData, false, status);
     }
 
-    reloadUserAdds($scope, addsData, false);
+    reloadUserAdds($scope, addsData, false, '');
+
+    $scope.deactivateUserAdd = function (id) {
+        addsData.deactivateUserAdd(function (resp) {
+            notifier.success('Successfully deactivate add.');
+            reloadUserAdds($scope, addsData, false, '');
+            $location.path('/user/ads');
+        }, function (resp, status, headers, config) {
+            $log.error('Status: ' + status + '\nData: ' + JSON.stringify(resp));
+            notifier.error(resp.modelState[""]);
+        },id)
+    }
+
+    $scope.publishAgainUserAdd = function (id) {
+        addsData.deactivateUserAdd(function (resp) {
+            notifier.success('Successfully publish add.');
+            reloadUserAdds($scope, addsData, false, '');
+            $location.path('/user/ads');
+        }, function (resp, status, headers, config) {
+            $log.error('Status: ' + status + '\nData: ' + JSON.stringify(resp));
+            notifier.error(resp.modelState[""]);
+        }, id)
+    }
 
     $scope.goToPage = function (mod) {
         if ($scope.addsPaging.getCurrentPage() + mod > 0 && $scope.addsPaging.getCurrentPage() + mod <= $scope.addsPaging.getNumPages()) {

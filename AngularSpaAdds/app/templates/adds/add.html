@@ -2,7 +2,7 @@
     <div class="row">
         <div class="col-md-7">
             <h4 class="pull-left">
-                {{ad.title}}
+                {{ad.title | limitTo: 60 }}
             </h4>
         </div>
         <div class="col-md-5">
@@ -18,20 +18,20 @@
             </div>
         </div>
         <div class="col-md-8">
-            <p class="text-info add-text">{{ad.text}}</p>
-            <table class="table table-striped">
+            <div class="add-text">{{ad.text}}</div>
+            <table class="my-table">
                 <tbody>
                     <tr>
-                        <td>Name:</td>
-                        <td>{{ad.ownerName}}</td>
+                        <td class="add-table-info">Name:</td>
+                        <td class="add-table-info">{{ad.ownerName| limitTo: 60}}</td>
                     </tr>
                     <tr>
-                        <td>Email:</td>
-                        <td>{{ad.ownerEmail}}</td>
+                        <td class="add-table-info">Email:</td>
+                        <td class ="add-table-info">{{ad.ownerEmail| limitTo: 60}}</td>
                     </tr>
                     <tr>
-                        <td>Phone:</td>
-                        <td>{{ad.ownerPhone}}</td>
+                        <td class="add-table-info">Phone:</td>
+                        <td class="add-table-info">{{ad.ownerPhone| limitTo: 60}}</td>
                     </tr>
                 </tbody>
             </table>

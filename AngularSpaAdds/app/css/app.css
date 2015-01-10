@@ -20,9 +20,16 @@
 }
 
 .add-text {
+    width: inherit;
     font-size: 1em !important;
+    word-wrap: break-word !important;
 }
 
-.categories {
-    text-overflow: ellipsis;
+.user-ads-button {
+    margin-bottom: 10px !important;
+}
+
+.add-table-info {
+    width:1px !important;
+    text-align:left !important;
 }
