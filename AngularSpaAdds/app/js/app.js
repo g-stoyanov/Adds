@@ -47,7 +47,7 @@
 
     //ADMIN
     $routeProvider.when('/admin/home', {
-        templateUrl: 'templates/not-implemented.html'
+        templateUrl: 'templates/admin-all-ads.html'
     });
 
     $routeProvider.when('/admin/ads/edit/:id', {

@@ -30,12 +30,18 @@
             } else {
                 $location.path('/admin/home');
             }
-            
+
         }, function (resp, status, headers, config) {
             $log.error('Status: ' + status + '\nData: ' + JSON.stringify(resp));
             notifier.error('Cannot create account!');
-            if (resp.modelState[""]) {
-                notifier.error(resp.modelState[""]);
+            var vals = Object.keys(resp.modelState).map(function (key) {
+                return resp.modelState[key];
+            });
+
+            for (var value in vals) {
+                if (vals[value]) {
+                    notifier.error(vals[value]);
+                }
             }
 
         }, user, registrationForm);
@@ -93,7 +99,7 @@
         } else {
             notifier.error('Invalid user profile data!');
         }
-        
+
     }
 
     $scope.updateUserPassword = function (updatePassword, editPasswordForm) {

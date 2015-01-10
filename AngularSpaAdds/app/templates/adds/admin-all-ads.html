@@ -1,0 +1,10 @@
+﻿<div ng-controller="AdminAddsController">
+    <ul>
+        <li ng-repeat="ad in allAddsData.get()">
+            <div ng-include="templates.adminAllAdsAdd">
+            </div>
+        </li>
+    </ul>
+
+    <div ng-include="templates.pagination"></div>
+</div>
