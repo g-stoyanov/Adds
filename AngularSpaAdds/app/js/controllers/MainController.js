@@ -47,6 +47,11 @@
                 $scope.navigation = { "url": templates.userHomeNavigation };
                 $scope.secondNavigation = { "url": templates.userMyAdsPanel };
                 $scope.leftNavigation = { "url": "" };
+            } else if (path.indexOf("/user/ads/delete/") > -1) {
+                $scope.header = { "url": templates.userHeader };
+                $scope.navigation = { "url": templates.userHomeNavigation };
+                $scope.secondNavigation = { "url": "" };
+                $scope.leftNavigation = { "url": "" };
             } else {
                 $location.path('/user/home');
             }

@@ -24,9 +24,9 @@
         //adds
         "add": "templates/adds/add.html",
         "allAdds": "templates/adds/all-ads.html",
-        "add": "templates/adds/add.html",
         "userAllAdds": "templates/adds/user-my-ads.html",
         "userAllAddsAdd": "templates/adds/user-all-ads-ad.html",
+        "userDeleteAdd": "templates/adds/user-delete-ad.html",
 
         //misc
         "pagination": "templates/misc/pagination.html"

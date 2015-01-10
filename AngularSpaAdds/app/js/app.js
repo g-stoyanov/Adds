@@ -38,7 +38,7 @@
     });
 
     $routeProvider.when('/user/ads/delete/:id', {
-        templateUrl: 'templates/not-implemented.html'
+        templateUrl: 'templates/user-delete-add.html'
     });
 
     $routeProvider.when('/user/profile', {
