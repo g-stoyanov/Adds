@@ -1,5 +1,5 @@
 ﻿<div class="col-lg-10">
-    <select class="form-control" id="towns" ng-model="town.id" ng-options="town.id as town.name for town in allTownsData" ng-change="reloadAdds(true, this)">
+    <select class="form-control" id="towns" ng-model="town.id" ng-options="town.id as town.name for town in allTownsData" ng-change="reloadAdds(true, this)" ng-value="town.id">
         <option value="">-- choose town --</option>
     </select>
 </div>

@@ -1,5 +1,5 @@
 ﻿<div class="col-lg-10">
-    <select class="form-control" id="categories" ng-model="category.id" ng-options="category.id as category.name for category in allCategoriesData" ng-change="reloadAdds(true)">
+    <select class="form-control" id="categories" ng-model="category.id" ng-options="category.id as category.name for category in allCategoriesData" ng-change="reloadAdds(true)" ng-value="category.id">
         <option value="">-- choose category --</option>
     </select>
 </div>
