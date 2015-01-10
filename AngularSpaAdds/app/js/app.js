@@ -34,7 +34,7 @@
     });
 
     $routeProvider.when('/user/ads/edit/:id', {
-        templateUrl: 'templates/not-implemented.html'
+        templateUrl: 'templates/adds/user-edit-ad.html'
     });
 
     $routeProvider.when('/user/ads/delete/:id', {

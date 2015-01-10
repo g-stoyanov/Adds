@@ -436,6 +436,7 @@
     <Content Include="app\templates\adds\add.html" />
     <Content Include="app\templates\adds\publish-add.html" />
     <Content Include="app\templates\adds\user-delete-ad.html" />
+    <Content Include="app\templates\adds\user-edit-ad.html" />
     <Content Include="app\templates\admin\admin-ads-panel.html" />
     <Content Include="app\templates\admin\admin-home-nav.html" />
     <Content Include="app\templates\adds\all-ads.html" />

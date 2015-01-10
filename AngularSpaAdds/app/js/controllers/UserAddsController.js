@@ -58,6 +58,10 @@
         $location.path('/user/ads/delete/' + id);
     }
 
+    $scope.editUserAdd = function (id) {
+        $location.path('/user/ads/edit/' + id);
+    }
+
     $scope.goToPage = function (mod) {
         if ($scope.addsPaging.getCurrentPage() + mod > 0 && $scope.addsPaging.getCurrentPage() + mod <= $scope.addsPaging.getNumPages()) {
             $scope.addsPaging.setCurrentPage($scope.addsPaging.getCurrentPage() + mod);

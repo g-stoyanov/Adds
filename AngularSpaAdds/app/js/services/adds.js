@@ -2,7 +2,15 @@
     return {
         getAllAdds: function (success, error, categoryId, townId, startPage, pageSize) {
             if (startPage === 0) {
-                startPage === 1
+                startPage = 1;
+            }
+
+            if (!categoryId) {
+                categoryId = '';
+            }
+
+            if (!townId) {
+                townId = '';
             }
 
             $http({ method: 'GET', url: 'http://softuni-ads.azurewebsites.net/api/Ads?CategoryId=' + categoryId + '&TownId=' + townId + '&StartPage=' + startPage + '&PageSize=' + pageSize })
@@ -35,7 +43,7 @@
 
         getUserAdds: function (success, error, status, startPage, pageSize) {
             if (startPage === 0) {
-                startPage === 1
+                startPage = 1;
             }
 
             if (!status) {

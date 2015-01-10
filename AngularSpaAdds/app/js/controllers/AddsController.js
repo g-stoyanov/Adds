@@ -54,7 +54,7 @@
         } 
     }
 
-    $scope.previewPic = function (files) {
+    $scope.changePic = function (files) {
         delete $scope.add.imageDataUrl;
         var file = files[0];
         var imgPreview = document.getElementById('imagePreview');
