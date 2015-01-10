@@ -32,6 +32,8 @@
 
     reloadUserAdds($scope, addsData, false, '');
 
+
+
     $scope.deactivateUserAdd = function (id) {
         addsData.deactivateUserAdd(function (resp) {
             notifier.success('Successfully deactivate add.');
@@ -44,7 +46,7 @@
     }
 
     $scope.publishAgainUserAdd = function (id) {
-        addsData.deactivateUserAdd(function (resp) {
+        addsData.publishAgainUserAdd(function (resp) {
             notifier.success('Successfully publish add.');
             reloadUserAdds($scope, addsData, false, '');
             $location.path('/user/ads');

@@ -33,6 +33,23 @@
             }
         },
 
+        logout: function (success, error) {
+            $http({
+                method: 'POST',
+                url: 'http://softuni-ads.azurewebsites.net/api/User/Logout',
+                headers: {
+                    Authorization: 'Bearer ' + sessionStorage.getItem('accessToken')
+                }
+            })
+            .success(function (data, status, headers, config) {
+                success(data);
+            })
+            .error(function (data, status, headers, config) {
+                $log.error(data);
+                error(data);
+            })
+        },
+
         changeUserPassword: function (success, error) {
             $http({
                 method: 'PUT',

@@ -15,7 +15,11 @@
         templateUrl: 'templates/adds/all-ads.html'
     });
     
-    //USER
+     //USER
+    $routeProvider.when('/logout', {
+        templateUrl: 'templates/adds/all-ads.html'
+    });
+
     $routeProvider.when('/user/home', {
         templateUrl: 'templates/adds/all-ads.html'
     });
