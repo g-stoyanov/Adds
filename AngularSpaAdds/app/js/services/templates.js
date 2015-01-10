@@ -15,7 +15,7 @@
         "adminHomeNavigation": "templates/admin/admin-home-nav.html",
         "adminAdsPanel": "templates/admin/admin-ads-panel.html",
         "adminHeader": "templates/admin/adminHeader.html",
-        "adminAllAdsAdd": "admin-all-ads-ad.html",
+        "adminAllAdsAdd": "templates/adds/admin-all-ads-ad.html",
 
         //filter
         "filterDropDowns": "templates/filter/filter-drop-downs.html",

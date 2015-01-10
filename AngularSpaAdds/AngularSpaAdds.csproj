@@ -65,6 +65,7 @@
     <Content Include="app\js\controllers\AddsController.js" />
     <Content Include="app\js\controllers\AddsDataController.js" />
     <Content Include="app\js\controllers\AdminAddsController.js" />
+    <Content Include="app\js\controllers\AdminAddsDataController.js" />
     <Content Include="app\js\controllers\FilterController.js" />
     <Content Include="app\js\controllers\MainController.js" />
     <Content Include="app\js\controllers\UserAddsController.js" />

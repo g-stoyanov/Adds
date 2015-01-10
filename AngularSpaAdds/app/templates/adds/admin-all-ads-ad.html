@@ -1,1 +1,40 @@
-﻿
+﻿<div class="add-container">
+    <div class="row">
+        <div class="col-md-7">
+            <h4 class="pull-left">
+                {{ad.title | limitTo: 60 }}
+            </h4>
+        </div>
+        <div class="col-md-5">
+            <span class="pull-right">
+                {{ad.date | date: 'd-MMM-yyyy'}}
+            </span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4">
+            <div class="img-container">
+                <img src="" ng-src="{{ad.imageDataUrl ? ad.imageDataUrl : 'img/No_image_available.svg'}}" class="add-img" />
+            </div>
+        </div>
+        <div class="col-md-8">
+            <div class="add-text">{{ad.text}}</div>
+            <table class="my-table">
+                <tbody>
+                    <tr>
+                        <td class="add-table-info">Name:</td>
+                        <td class="add-table-info">{{ad.ownerName | limitTo: 40}}</td>
+                    </tr>
+                    <tr>
+                        <td class="add-table-info">Email:</td>
+                        <td class="add-table-info">{{ad.ownerEmail | limitTo: 40}}</td>
+                    </tr>
+                    <tr>
+                        <td class="add-table-info">Phone:</td>
+                        <td class="add-table-info">{{ad.ownerPhone | limitTo: 40}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
