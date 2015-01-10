@@ -32,8 +32,6 @@
 
     reloadUserAdds($scope, addsData, false, '');
 
-
-
     $scope.deactivateUserAdd = function (id) {
         addsData.deactivateUserAdd(function (resp) {
             notifier.success('Successfully deactivate add.');

@@ -52,7 +52,13 @@
     }
 
     $scope.logout = function () {
-        sessionStorage.clear();
-        $location.path('/');
+        userData.logout(function (resp) {
+            notifier.success('Successfully logout. Good bye!');
+            sessionStorage.clear();
+            $location.path('/');
+        }, function (resp, status, headers, config) {
+            $log.error('Status: ' + status + '\nData: ' + JSON.stringify(resp));
+            notifier.error(resp.modelState[""]);
+        })
     }
 })
