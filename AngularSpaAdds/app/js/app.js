@@ -42,7 +42,7 @@
     });
 
     $routeProvider.when('/user/profile', {
-        templateUrl: 'templates/not-implemented.html'
+        templateUrl: 'templates/user/user-edit-profile.html'
     });
 
     //ADMIN
