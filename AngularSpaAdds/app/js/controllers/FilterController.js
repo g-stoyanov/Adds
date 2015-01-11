@@ -1,10 +1,11 @@
-﻿angularSpaAdds.controller('FilterController', function ($scope, templates, addsTransferData, addsPaging, addsFiltering, reloadAdds, addsData, reloadAdminAdds, townsData, categoriesData) {
+﻿angularSpaAdds.controller('FilterController', function ($scope, templates, addsTransferData, addsPaging, addsFiltering, reloadAdds, addsData, reloadAdminAdds, townsData, categoriesData, adminAddsFiltering, adminAddsData) {
     $scope.templates = templates;
     $scope.allAddsData = addsTransferData;
     $scope.addsPaging = addsPaging;
     $scope.addsFiltering = addsFiltering;
     $scope.category = {};
     $scope.town = {};
+    $scope.adminAddsFiltering = adminAddsFiltering;
 
     townsData.getAllTowns(function (resp) {
         $scope.allTownsData = resp;
@@ -18,7 +19,7 @@
         if (sessionStorage['isAdmin'] != 'true') {
             reloadAdds($scope, addsData, isFilter);
         } else {
-            reloadAdminAdds($scope, addsData, isFilter);
+            reloadAdminAdds($scope, adminAddsData, isFilter);
         }
         
     }

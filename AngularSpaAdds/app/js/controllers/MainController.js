@@ -7,7 +7,8 @@
     categoriesData,
     townsData,
     userData,
-    notifier) {
+    notifier,
+    addsFiltering) {
 
     $scope.$on('$routeChangeSuccess', function () {
         var path = $location.path();
@@ -15,6 +16,8 @@
         //home
         if (sessionStorage['isLogged'] != 'true') {
             if (path === '/') {
+                addsFiltering.setTown('');
+                addsFiltering.setCategory('');
                 $scope.header = { "url": templates.normalHeader };
                 $scope.navigation = { "url": templates.homeNavigation };
                 $scope.secondNavigation = { "url": templates.homePanel };
@@ -33,6 +36,8 @@
         //user
         else if (sessionStorage['isAdmin'] != 'true') {
             if (path === '/user/home') {
+                addsFiltering.setTown('');
+                addsFiltering.setCategory('');
                 $scope.header = { "url": templates.userHeader };
                 $scope.navigation = { "url": templates.userHomeNavigation };
                 $scope.secondNavigation = { "url": "" };

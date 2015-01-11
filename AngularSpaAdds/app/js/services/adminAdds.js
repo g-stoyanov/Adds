@@ -17,6 +17,10 @@
                 sortBy = '';
             }
 
+            if (status === undefined) {
+                status = '';
+            }
+
             $http({
                 method: 'GET', url: 'http://softuni-ads.azurewebsites.net/api/admin/Ads?Status=' + status + '&CategoryId=' + categoryId + '&TownId=' + townId + '&SortBy=' + sortBy + '&StartPage=' + startPage + '&PageSize=' + pageSize,
                 headers: {

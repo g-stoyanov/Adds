@@ -19,7 +19,7 @@
             scope.addsPaging.setNumPages(resp.numPages);
         }, function (resp, status, headers, config) {
             $log.error('Status: ' + status + '\nData: ' + JSON.stringify(resp));
-            notifier.error('Unexpected error!  advertisements data.');
+            notifier.error('Unexpected error!  Cannot load advertisements data.');
         }, scope.addsFiltering.getCategory(), scope.addsFiltering.getTown(), scope.addsPaging.getCurrentPage(), scope.addsPaging.getMaxSize());
     };
 })
@@ -45,7 +45,7 @@ angularSpaAdds.factory('reloadUserAdds', function ($log, notifier) {
             scope.addsPaging.setNumPages(resp.numPages);
         }, function (resp, status, headers, config) {
             $log.error('Status: ' + status + '\nData: ' + JSON.stringify(resp));
-            notifier.error('Unexpected error!  advertisements data.');
+            notifier.error('Unexpected error!  Cannot load advertisements data.');
         }, status, scope.addsPaging.getCurrentPage(), scope.addsPaging.getMaxSize());
     };
 })
@@ -75,7 +75,7 @@ angularSpaAdds.factory('reloadAdminAdds', function ($log, notifier) {
             scope.addsPaging.setNumPages(resp.numPages);
         }, function (resp, status, headers, config) {
             $log.error('Status: ' + status + '\nData: ' + JSON.stringify(resp));
-            notifier.error('Unexpected error!  advertisements data.');
-        }, status, scope.addsFiltering.getCategory(), scope.addsFiltering.getTown(), scope.adminAddsFiltering.getSortBy(), scope.addsPaging.getCurrentPage(), scope.addsPaging.getMaxSize());
+            notifier.error('Unexpected error!  Cannot load advertisements data.');
+        }, scope.addsPaging.getStatus(status), scope.addsFiltering.getCategory(), scope.addsFiltering.getTown(), scope.adminAddsFiltering.getSortBy(), scope.addsPaging.getCurrentPage(), scope.addsPaging.getMaxSize());
     };
 })
