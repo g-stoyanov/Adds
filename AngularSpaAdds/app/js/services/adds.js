@@ -46,10 +46,6 @@
                 startPage = 1;
             }
 
-            if (!status) {
-                status = '';
-            }
-
             $http({
                 method: 'GET',
                 url: 'http://softuni-ads.azurewebsites.net/api/User/Ads?Status=' + status + '&StartPage=' + startPage + '&PageSize=' + pageSize,
