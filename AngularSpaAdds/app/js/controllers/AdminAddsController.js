@@ -28,14 +28,16 @@
     $scope.allAddsData.set([]);
 
     $scope.reloadAdminAdds = function (isFilter) {
-        reloadAdminAdds($scope, adminAddsData, isFilter, "");
+        reloadAdminAdds($scope, adminAddsData, isFilter, $scope.addsPaging.getStatus(status));
     }
 
-    reloadAdminAdds($scope, adminAddsData, false, '');
+    reloadAdminAdds($scope, adminAddsData, false, $scope.addsPaging.getStatus(status));
 
 
     $scope.getAdminAddsByStatus = function (status) {
-        reloadAdminAdds($scope, adminAddsData, false, status);
+        $scope.addsPaging.setCurrentPage(1)
+        $scope.addsPaging.setStatus(status)
+        reloadAdminAdds($scope, adminAddsData, false, $scope.addsPaging.getStatus(status));
     }
 
     $scope.goToPage = function (mod) {

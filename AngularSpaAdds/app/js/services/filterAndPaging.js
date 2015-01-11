@@ -19,12 +19,12 @@
             scope.addsPaging.setNumPages(resp.numPages);
         }, function (resp, status, headers, config) {
             $log.error('Status: ' + status + '\nData: ' + JSON.stringify(resp));
-            notifier.error(resp.modelState[""]);
+            notifier.error('Unexpected error!  advertisements data.');
         }, scope.addsFiltering.getCategory(), scope.addsFiltering.getTown(), scope.addsPaging.getCurrentPage(), scope.addsPaging.getMaxSize());
     };
 })
 
-angularSpaAdds.factory('reloadUserAdds', function ($log) {
+angularSpaAdds.factory('reloadUserAdds', function ($log, notifier) {
     return function (scope, addsData, isFilter, status) {
 
         if (isFilter) {
@@ -45,20 +45,22 @@ angularSpaAdds.factory('reloadUserAdds', function ($log) {
             scope.addsPaging.setNumPages(resp.numPages);
         }, function (resp, status, headers, config) {
             $log.error('Status: ' + status + '\nData: ' + JSON.stringify(resp));
-            notifier.error(resp.modelState[""]);
+            notifier.error('Unexpected error!  advertisements data.');
         }, status, scope.addsPaging.getCurrentPage(), scope.addsPaging.getMaxSize());
     };
 })
 
-angularSpaAdds.factory('reloadAdminAdds', function ($log) {
+angularSpaAdds.factory('reloadAdminAdds', function ($log, notifier) {
     return function (scope, adminAddsData, isFilter, status) {
 
         if (isFilter) {
             scope.addsFiltering.setTown(scope.town.id);
             scope.addsFiltering.setCategory(scope.category.id);
             scope.addsPaging.setCurrentPage(1);
-            scope.adminAddsFiltering.setSortBy(scope.sortBy);
-            scope.adminAddsFiltering.setStatus(scope.status);
+            if (scope.adminAddsFiltering) {
+                scope.adminAddsFiltering.setSortBy(scope.sortBy);
+                scope.adminAddsFiltering.setStatus(scope.status);
+            }
         }
 
         adminAddsData.getAdminAllAdds(function (resp) {
@@ -73,7 +75,7 @@ angularSpaAdds.factory('reloadAdminAdds', function ($log) {
             scope.addsPaging.setNumPages(resp.numPages);
         }, function (resp, status, headers, config) {
             $log.error('Status: ' + status + '\nData: ' + JSON.stringify(resp));
-            notifier.error(resp.modelState[""]);
+            notifier.error('Unexpected error!  advertisements data.');
         }, status, scope.addsFiltering.getCategory(), scope.addsFiltering.getTown(), scope.adminAddsFiltering.getSortBy(), scope.addsPaging.getCurrentPage(), scope.addsPaging.getMaxSize());
     };
 })

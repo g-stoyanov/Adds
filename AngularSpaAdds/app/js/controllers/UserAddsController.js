@@ -23,14 +23,16 @@
     $scope.allAddsData.set([]);
 
     $scope.reloadUserAdds = function (isFilter) {
-        reloadUserAdds($scope, addsData, isFilter, "");
+        reloadUserAdds($scope, addsData, isFilter, $scope.addsPaging.getStatus(status));
     }
 
     $scope.getUserAddsByStatus = function (status) {
-        reloadUserAdds($scope, addsData, false, status);
+        $scope.addsPaging.setCurrentPage(1)
+        $scope.addsPaging.setStatus(status);
+        reloadUserAdds($scope, addsData, true, $scope.addsPaging.getStatus(status));
     }
 
-    reloadUserAdds($scope, addsData, false, '');
+    reloadUserAdds($scope, addsData, false, $scope.addsPaging.getStatus(status));
 
     $scope.deactivateUserAdd = function (id) {
         addsData.deactivateUserAdd(function (resp) {

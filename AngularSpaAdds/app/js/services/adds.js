@@ -169,7 +169,16 @@ angularSpaAdds.factory('addsPaging', function () {
     var maxSize = 5;
     var currentPage = 1;
     var numPages = 0;
+    var status = '';
     var ctrl = {};
+
+    ctrl.setStatus = function (d) {
+        status = d;
+    };
+
+    ctrl.getStatus = function () {
+        return status;
+    };
 
     ctrl.setMaxSize = function (d) {
         maxSize = d;
