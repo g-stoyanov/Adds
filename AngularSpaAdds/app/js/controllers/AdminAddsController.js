@@ -27,20 +27,6 @@
 
     $scope.allAddsData.set([]);
 
-    $scope.getTownName = function (id) {
-        townsData.getAllTowns(function (resp) {
-            for (var town in resp) {
-                if (town.id === id) {
-                    return town.name;
-                }
-            }
-        });
-    }
-
-    $scope.getCategoryName = function (id) {
-
-    }
-
     $scope.reloadAdminAdds = function (isFilter) {
         reloadAdminAdds($scope, adminAddsData, isFilter, "");
     }

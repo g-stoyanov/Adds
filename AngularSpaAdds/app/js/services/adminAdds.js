@@ -1,4 +1,4 @@
-﻿angularSpaAdds.factory('adminAddsData', function ($http, $log) {
+﻿angularSpaAdds.factory('adminAddsData', function ($http, $log, townsData, categoriesData) {
     return {
         getAdminAllAdds: function (success, error, status, categoryId, townId, sortBy, startPage, pageSize) {
             if (startPage === 0) {
@@ -28,6 +28,25 @@
                 }
             })
             .success(function (data, status, headers, config) {
+                townsData.getAllTowns(function (towns) {
+                    for (var i = 0; i < data.ads.length; i++) {
+                        for (var town in towns) {
+                            if (towns[town].id === data.ads[i].townId) {
+                                data.ads[i].townName = towns[town].name;
+                            }
+                        }
+                    }
+                });
+
+                categoriesData.getAllCategories(function (categories) {
+                    for (var i = 0; i < data.ads.length; i++) {
+                        for (var category in categories) {
+                            if (categories[category].id === data.ads[i].categoryId) {
+                                data.ads[i].categoryName = categories[category].name;
+                            }
+                        }
+                    }
+                });
                 success(data);
             })
             .error(function (data, status, headers, config) {
