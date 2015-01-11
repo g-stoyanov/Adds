@@ -34,7 +34,41 @@
                 $log.error(data);
                 error(data);
             })
-        }
+        },
+
+        approveAdd: function (success, error, id) {
+            $http({
+                method: 'PUT',
+                url: 'http://softuni-ads.azurewebsites.net/api/admin/Ads/Approve/' + id,
+                headers: {
+                    Authorization: 'Bearer ' + sessionStorage.getItem('accessToken')
+                }
+            })
+            .success(function (data, status, headers, config) {
+                success(data);
+            })
+            .error(function (data, status, headers, config) {
+                $log.error(data);
+                error(data);
+            })
+        },
+
+        rejectAdd: function (success, error, id) {
+        $http({
+            method: 'PUT',
+            url: 'http://softuni-ads.azurewebsites.net/api/admin/Ads/Reject/' + id,
+            headers: {
+                Authorization: 'Bearer ' + sessionStorage.getItem('accessToken')
+            }
+        })
+        .success(function (data, status, headers, config) {
+            success(data);
+        })
+        .error(function (data, status, headers, config) {
+            $log.error(data);
+            error(data);
+        })
+    }
     }
 });
 

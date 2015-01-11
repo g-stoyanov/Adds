@@ -40,6 +40,27 @@
         reloadAdminAdds($scope, adminAddsData, false, $scope.addsPaging.getStatus(status));
     }
 
+
+    $scope.approve = function (id) {
+        adminAddsData.approveAdd(function (resp) {
+            notifier.success('Successfully approve advertisement.');
+            $scope.reloadAdminAdds(false);
+        }, function (resp, status, headers, config) {
+            $log.error('Status: ' + status + '\nData: ' + JSON.stringify(resp));
+            notifier.error('Cannot approve advertisement.');
+        }, id)
+    }
+
+    $scope.reject = function (id) {
+        adminAddsData.rejectAdd(function (resp) {
+            notifier.success('Successfully reject advertisement.');
+            $scope.reloadAdminAdds(false);
+        }, function (resp, status, headers, config) {
+            $log.error('Status: ' + status + '\nData: ' + JSON.stringify(resp));
+            notifier.error('Cannot reject advertisement.');
+        }, id)
+    }
+
     $scope.goToPage = function (mod) {
         if ($scope.addsPaging.getCurrentPage() + mod > 0 && $scope.addsPaging.getCurrentPage() + mod <= $scope.addsPaging.getNumPages()) {
             $scope.addsPaging.setCurrentPage($scope.addsPaging.getCurrentPage() + mod);
