@@ -51,7 +51,7 @@ angularSpaAdds.factory('reloadUserAdds', function ($log) {
 })
 
 angularSpaAdds.factory('reloadAdminAdds', function ($log) {
-    return function (scope, adminAddsData, isFilter) {
+    return function (scope, adminAddsData, isFilter, status) {
 
         if (isFilter) {
             scope.addsFiltering.setTown(scope.town.id);

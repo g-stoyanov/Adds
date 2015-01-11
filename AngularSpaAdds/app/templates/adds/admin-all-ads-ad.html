@@ -23,7 +23,7 @@
                 <tbody>
                     <tr>
                         <td class="add-table-info">Username:</td>
-                        <td class="add-table-info">{{ad.userName | limitTo: 40}}</td>
+                        <td class="add-table-info">{{ad.ownerUsername | limitTo: 40}}</td>
                     </tr>
                     <tr>
                         <td class="add-table-info">Name:</td>
@@ -44,6 +44,10 @@
                     <tr>
                         <td class="add-table-info">Town:</td>
                         <td class="add-table-info">{{ad.townName | limitTo: 40}}</td>
+                    </tr>
+                    <tr>
+                        <td class="add-table-info">Status:</td>
+                        <td class="add-table-info">{{ad.status | limitTo: 40}}</td>
                     </tr>
                 </tbody>
             </table>

@@ -22,31 +22,12 @@
             }
 
             $http({
-                method: 'GET', url: 'http://softuni-ads.azurewebsites.net/api/Ads?Status=' + status + '&CategoryId=' + categoryId + '&TownId=' + townId + '&SortBy=' + sortBy + '&StartPage=' + startPage + '&PageSize=' + pageSize,
+                method: 'GET', url: 'http://softuni-ads.azurewebsites.net/api/admin/Ads?Status=' + status + '&CategoryId=' + categoryId + '&TownId=' + townId + '&SortBy=' + sortBy + '&StartPage=' + startPage + '&PageSize=' + pageSize,
                 headers: {
                     Authorization: 'Bearer ' + sessionStorage.getItem('accessToken')
                 }
             })
             .success(function (data, status, headers, config) {
-                townsData.getAllTowns(function (towns) {
-                    for (var i = 0; i < data.ads.length; i++) {
-                        for (var town in towns) {
-                            if (towns[town].id === data.ads[i].townId) {
-                                data.ads[i].townName = towns[town].name;
-                            }
-                        }
-                    }
-                });
-
-                categoriesData.getAllCategories(function (categories) {
-                    for (var i = 0; i < data.ads.length; i++) {
-                        for (var category in categories) {
-                            if (categories[category].id === data.ads[i].categoryId) {
-                                data.ads[i].categoryName = categories[category].name;
-                            }
-                        }
-                    }
-                });
                 success(data);
             })
             .error(function (data, status, headers, config) {

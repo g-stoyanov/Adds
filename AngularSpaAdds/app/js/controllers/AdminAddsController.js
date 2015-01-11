@@ -34,6 +34,10 @@
     reloadAdminAdds($scope, adminAddsData, false, '');
 
 
+    $scope.getAdminAddsByStatus = function (status) {
+        reloadAdminAdds($scope, adminAddsData, false, status);
+    }
+
     $scope.goToPage = function (mod) {
         if ($scope.addsPaging.getCurrentPage() + mod > 0 && $scope.addsPaging.getCurrentPage() + mod <= $scope.addsPaging.getNumPages()) {
             $scope.addsPaging.setCurrentPage($scope.addsPaging.getCurrentPage() + mod);
